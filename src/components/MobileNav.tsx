@@ -1,0 +1,91 @@
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import MobileNavHamburgerBtn from "./MobileNavHamburgerBtn";
+
+const menuVariants = {
+  initial: {
+    scaleY: 0,
+  },
+  animate: {
+    scaleY: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut",
+    },
+  },
+  exit: {
+    scaleY: 0,
+    transition: {
+      delay: 0.15,
+      duration: 0.4,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const listVariants = {
+  initial: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+  open: {
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const listItemVariants = {
+  initial: {
+    y: 50,
+    opacity: 0,
+  },
+  open: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
+const MobileNav = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const navList = ["About", "Skills", "Projects", "Contact"];
+
+  return (
+    <div className=''>
+      <MobileNavHamburgerBtn open={open} setOpen={setOpen} />
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className='fixed top-0 right-0 h-screen origin-top bg-white'
+            initial='initial'
+            animate='animate'
+            exit='exit'
+            variants={menuVariants}
+          >
+            <motion.nav>
+              <motion.ul
+                className='mt-24 px-10'
+                variants={listVariants}
+                initial='initial'
+                animate='open'
+                exit='initial'
+              >
+                {navList.map((item) => (
+                  <motion.li variants={listItemVariants} key={item}>
+                    <a href={`#${item.toLowerCase()}`}>{item}</a>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export default MobileNav;
