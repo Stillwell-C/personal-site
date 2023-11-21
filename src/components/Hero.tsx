@@ -1,7 +1,7 @@
 import { useScroll, useTransform, motion } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+import React, { ForwardedRef, forwardRef, useEffect, useRef } from "react";
 
-const Hero = () => {
+const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   const targetRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -25,7 +25,9 @@ const Hero = () => {
     >
       <motion.div style={{ opacity }} className='pt-hero px-8'>
         <motion.h2 className='mb-4' style={{ translateX: xShift }}>
-          <span className='text-6xl'>Christopher Stillwell</span>
+          <span ref={ref} className='text-6xl'>
+            Christopher Stillwell
+          </span>
         </motion.h2>
         <motion.p style={{ translateY: yShift }} className='text-2xl'>
           FULL STACK DEVELOPER
@@ -33,6 +35,6 @@ const Hero = () => {
       </motion.div>
     </section>
   );
-};
+});
 
 export default Hero;
