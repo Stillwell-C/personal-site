@@ -17,7 +17,9 @@ const fullScreenVariants = {
   },
   exitFS: {
     opacity: 0,
-    x: 0,
+    transition: {
+      duration: 0,
+    },
   },
 };
 
@@ -29,10 +31,6 @@ const mobileVariants = {
   animateMob: {
     opacity: 1,
     x: 0,
-    transition: {
-      delay: 0.1,
-      duration: 0.3,
-    },
   },
   exitMob: {
     opacity: 0,
