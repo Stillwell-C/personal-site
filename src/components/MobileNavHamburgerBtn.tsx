@@ -1,6 +1,11 @@
 import React from "react";
 
-const MobileNavHamburgerBtn = ({ open, setOpen }) => {
+type PropType = {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const MobileNavHamburgerBtn = ({ open, setOpen }: PropType) => {
   return (
     <button
       className='relative cursor-pointer w-8 h-8 z-10'
