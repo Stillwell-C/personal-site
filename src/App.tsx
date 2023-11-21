@@ -1,39 +1,40 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 
 function App() {
-  const updateScroll = () => {
-    const htmlEl = document.documentElement;
-    // console.log(htmlEl);
-    // console.log("top", htmlEl.scrollTop);
-    // console.log("height", htmlEl.clientHeight);
+  const [collapseNav, setCollapseNav] = useState<boolean>(false);
 
-    const screenHeightScrollPercentage =
-      (htmlEl.scrollTop / htmlEl.clientHeight) * 100;
-    htmlEl.style.setProperty(
-      "--scroll",
-      screenHeightScrollPercentage.toString()
-    );
+  const scrollRefOptions = {
+    rootMargin: "-150px 0px 0px 0px",
   };
 
+  const scrollObserver = useRef<HTMLElement>(null);
+
   useEffect(() => {
-    window.addEventListener("scroll", updateScroll);
-    window.addEventListener("resize", updateScroll);
-    console.log(updateScroll());
-    return () => {
-      window.removeEventListener("scroll", updateScroll);
-      window.removeEventListener("resize", updateScroll);
-    };
-  }, []);
+    const ScrollRefCheck = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) {
+        console.log("not intersecting");
+        setCollapseNav(true);
+      }
+      if (entry.isIntersecting) {
+        console.log("intersecting");
+        setCollapseNav(false);
+      }
+    }, scrollRefOptions);
+    if (scrollObserver.current) ScrollRefCheck.observe(scrollObserver.current);
+  }, [scrollObserver?.current]);
+
+  useEffect(() => console.log("state", collapseNav), [collapseNav]);
 
   return (
     <div>
-      <Header />
+      <Header collapseNav={collapseNav} />
       <main>
-        <Hero />
+        <Hero ref={scrollObserver} />
         <About />
         <Skills />
       </main>
