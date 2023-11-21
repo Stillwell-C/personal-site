@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MobileNavHamburgerBtn from "./MobileNavHamburgerBtn";
+import { Link } from "react-scroll";
+import navList from "../Data/NavList";
 
 const menuVariants = {
   initial: {
@@ -52,7 +54,7 @@ const listItemVariants = {
 const MobileNav = () => {
   const [open, setOpen] = useState<boolean>(false);
 
-  const navList = ["About", "Skills", "Projects", "Contact"];
+  const handleClose = () => setOpen(false);
 
   return (
     <div className=''>
@@ -60,7 +62,7 @@ const MobileNav = () => {
       <AnimatePresence>
         {open && (
           <motion.div
-            className='fixed top-0 right-0 h-screen origin-top bg-white'
+            className='fixed top-0 right-0 h-screen origin-top bg-white w-screen sm:w-80'
             initial='initial'
             animate='animate'
             exit='exit'
@@ -76,7 +78,18 @@ const MobileNav = () => {
               >
                 {navList.map((item) => (
                   <motion.li variants={listItemVariants} key={item}>
-                    <a href={`#${item.toLowerCase()}`}>{item}</a>
+                    <Link
+                      activeClass='active'
+                      to={item.toLowerCase()}
+                      spy={true}
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                      className='text-3xl cursor-pointer'
+                      onClick={handleClose}
+                    >
+                      {item}
+                    </Link>
                   </motion.li>
                 ))}
               </motion.ul>
