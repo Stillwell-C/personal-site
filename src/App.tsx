@@ -33,7 +33,7 @@ function App() {
   useEffect(() => console.log("state", collapseNav), [collapseNav]);
 
   return (
-    <div>
+    <div className='bg-white-smoke'>
       <Header collapseNav={collapseNav} />
       <main>
         <Hero ref={scrollObserver} />
