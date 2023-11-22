@@ -14,12 +14,10 @@ const Projects = () => {
   console.log(scrollYProgress.get());
 
   return (
-    <section className='relative overflow-x-hidden' id='projects'>
+    <section className='relative overflow-x-hidden mb-40 mt-10' id='projects'>
       <div>
-        <h2 className='sticky top-0 pt-20 mx-20 mb-40 text-left text-4xl'>
-          Projects
-        </h2>
-        <div ref={sectionref} className='flex flex-col gap-60'>
+        <h2 className=' mb-40 text-center text-4xl'>Projects</h2>
+        <div ref={sectionref} className='flex flex-col gap-20'>
           {projectsList.map((project) => (
             <SingleProject
               scrollYProgress={scrollYProgress}
