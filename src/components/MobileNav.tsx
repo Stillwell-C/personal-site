@@ -57,12 +57,12 @@ const MobileNav = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className=''>
+    <div className=' z-[99999999] '>
       <MobileNavHamburgerBtn open={open} setOpen={setOpen} />
       <AnimatePresence>
         {open && (
           <motion.div
-            className='fixed top-0 right-0 h-screen origin-top bg-white w-screen sm:w-80'
+            className='fixed top-0 right-0 h-screen origin-top bg-prussian-blue text-white w-screen sm:w-80'
             initial='initial'
             animate='animate'
             exit='exit'
