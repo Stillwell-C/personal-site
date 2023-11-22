@@ -46,7 +46,7 @@ const Skills = () => {
   return (
     <section
       id='skills'
-      className='min-h-screen flex justify-center items-center '
+      className='min-h-screen flex justify-center items-center bg-[#f4f4f4] '
     >
       <div className='max-w-3xl py-24 border-2 border-l-0 border-r-0 '>
         <h3 className='text-center text-4xl mb-8'>Skills</h3>
