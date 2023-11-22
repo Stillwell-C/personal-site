@@ -59,26 +59,41 @@ const SingleProject = ({ project }: PropsType) => {
         </motion.div>
         <motion.div
           //   style={{ y: yInfo, x: xInfo }}
-          className='absolute max-w-md border z-10 bg-white p-8 bottom-15 -right-10 rounded-lg'
+          className='absolute max-w-md border z-[2] bg-white p-8 bottom-15 -right-10 rounded-lg'
         >
-          <h3 className='text-2xl mb-4'>{project.name}</h3>
-          <p className='mb-2'>{project.description}</p>
-          <ul className='flex gap-2 mb-4 flex-wrap '>
+          <h3 className='text-2xl mb-6'>{project.name}</h3>
+          <p className='mb-4'>{project.description}</p>
+          <p className='mb-2'>Made using:</p>
+          <ul className='flex flex-wrap mb-8'>
             {project.technologies.map((technology) => (
-              <motion.span
+              <motion.div
                 whileHover={{ scale: 1.05 }}
-                className='border p-2 rounded-md'
-                key={technology}
+                className='flex justify-start items-center gap-1 mb-2 mr-4'
               >
-                {technology}
-              </motion.span>
+                {technology.icon && (
+                  <div className='w-6 h-6 flex items-center justify-start'>
+                    {technology.icon}
+                  </div>
+                )}
+                <span className='rounded-md' key={technology?.name}>
+                  {technology?.name}
+                </span>
+              </motion.div>
             ))}
           </ul>
-          <div className='flex gap-2'>
-            <a className='border p-2 rounded-md' href={project.siteLink}>
+          <div className='flex justify-end gap-2 '>
+            <a
+              className='border p-2 rounded-md hover:bg-black hover:text-white'
+              href={project.siteLink}
+              target='_blank'
+            >
               View Site
             </a>
-            <a className='border p-2 rounded-md' href={project.githubLink}>
+            <a
+              className='border p-2 rounded-md hover:bg-black hover:text-white'
+              href={project.githubLink}
+              target='_blank'
+            >
               View Code
             </a>
           </div>
