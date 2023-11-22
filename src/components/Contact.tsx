@@ -63,7 +63,7 @@ const Contact = () => {
   return (
     <section
       id='contact'
-      className='h-screen w-full mt-10 bg-slate-600 flex justify-center items-center'
+      className='h-screen w-full flex justify-center items-center bg-battleship-gray'
     >
       <motion.div
         className='h-full w-full flex items-center justify-between max-w-7xl px-12'
@@ -74,7 +74,7 @@ const Contact = () => {
       >
         <motion.div
           variants={variants}
-          className='flex flex-1 flex-col align-top gap-6'
+          className='flex flex-1 flex-col align-top gap-6 text-white pb-36'
         >
           <h2 className='text-7xl mb-10'>Contact me:</h2>
           <motion.div variants={variants}>
@@ -94,7 +94,7 @@ const Contact = () => {
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
-            className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px]'
+            className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] z-0'
           >
             <motion.svg
               variants={iconVariants}
@@ -123,9 +123,9 @@ const Contact = () => {
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
-            className='flex flex-col gap-8 w-full pt-10 z-[10]'
+            className='flex flex-col gap-8 w-full pt-10'
           >
-            <div className='relative w-full h-14 overflow-hidden text-lg rounded-lg z-[10]'>
+            <div className='relative w-full h-14 overflow-hidden text-lg rounded-lg'>
               <input
                 className='peer w-full h-full pt-5 px-4 focus:outline-none text-base'
                 type='text'
@@ -146,7 +146,7 @@ const Contact = () => {
                 Name
               </label>
             </div>
-            <div className='relative w-full h-14 overflow-hidden text-lg rounded-lg z-[10]'>
+            <div className='relative w-full h-14 overflow-hidden text-lg rounded-lg '>
               <input
                 className='peer w-full h-full pt-5 px-4 focus:outline-none text-base'
                 type='email'
@@ -167,7 +167,7 @@ const Contact = () => {
                 Email
               </label>
             </div>
-            <div className='relative w-full h-32 overflow-hidden text-lg rounded-lg z-[10]'>
+            <div className='relative w-full h-32 overflow-hidden text-lg rounded-lg'>
               <textarea
                 className={`peer px-4 pt-6 pb-2 w-full h-full focus:outline-none text-base resize-none`}
                 name='message'
@@ -191,6 +191,12 @@ const Contact = () => {
                 Message
               </label>
             </div>
+            <button
+              className='cursor-pointer text-white text-xl py-4 bg-prussian-blue rounded-lg z-[1]'
+              type='submit'
+            >
+              Send
+            </button>
           </motion.form>
         </div>
       </motion.div>
