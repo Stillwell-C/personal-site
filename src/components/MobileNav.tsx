@@ -57,7 +57,7 @@ const MobileNav = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className=' z-[99999999] '>
+    <div className=' z-[99999999] pointer-events-auto'>
       <MobileNavHamburgerBtn open={open} setOpen={setOpen} />
       <AnimatePresence>
         {open && (

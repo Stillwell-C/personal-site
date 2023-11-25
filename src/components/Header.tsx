@@ -42,7 +42,7 @@ const mobileVariants = {
 
 const Header = ({ collapseNav }: PropsType) => {
   return (
-    <header className='fixed top-0 py-12 px-8 w-full flex justify-between z-10'>
+    <header className='fixed top-0 py-12 px-8 w-full flex justify-between z-10 pointer-events-none'>
       <div>
         <h1>
           <Link
@@ -52,7 +52,7 @@ const Header = ({ collapseNav }: PropsType) => {
             smooth={true}
             offset={0}
             duration={500}
-            className='text-3xl cursor-pointer'
+            className='text-3xl cursor-pointer pointer-events-auto'
           >
             CS
           </Link>

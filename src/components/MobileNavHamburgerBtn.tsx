@@ -8,7 +8,7 @@ type PropType = {
 const MobileNavHamburgerBtn = ({ open, setOpen }: PropType) => {
   return (
     <button
-      className='relative cursor-pointer w-8 h-8 z-10'
+      className='relative cursor-pointer w-8 h-8 z-10 pointer-events-auto'
       onClick={() => setOpen((prev: boolean) => !prev)}
     >
       <div
