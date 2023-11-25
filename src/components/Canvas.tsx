@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 type MouseCoordType = {
   x: number;
@@ -14,20 +8,20 @@ type MouseCoordType = {
 type PropsType = {
   width: number;
   height: number;
+  mousePosition: MouseCoordType;
 };
 
 type ContextType = CanvasRenderingContext2D | null | undefined;
 
-const Canvas = ({ width, height }: PropsType) => {
+const Canvas = ({ width, height, mousePosition }: PropsType) => {
   const ref = useRef<HTMLCanvasElement>(null);
   const mousePosRef = useRef<MouseCoordType | null>(null);
 
-  const [mousePosition, setMousePosition] = useState<MouseCoordType>({
-    x: 0,
-    y: 0,
-  });
+  // const [mousePosition, setMousePosition] = useState<MouseCoordType>({
+  //   x: 0,
+  //   y: 0,
+  // });
   const [dotArr, setDotArr] = useState<Dot[]>([]);
-  // const [rotationRadians, setRotationRadians] = useState<number>(0);
 
   mousePosRef.current = mousePosition;
 
@@ -41,9 +35,9 @@ const Canvas = ({ width, height }: PropsType) => {
 
   // const colorArr: string[] = ["black"];
 
-  const handleMousePosition = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    setMousePosition({ x: e.screenX, y: e.screenY });
-  };
+  // const handleMousePosition = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  //   setMousePosition({ x: e.clientX, y: e.clientY });
+  // };
 
   class Dot {
     x: number;
@@ -60,72 +54,78 @@ const Canvas = ({ width, height }: PropsType) => {
       this.shadowModifier = 0;
     }
 
-    create(context: ContextType, rotationRadians: number) {
+    create(context: ContextType) {
       if (!context) return;
       context.beginPath();
       context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 
-      // const angle = rotationRadians * (180 / Math.PI);
+      const transformMatrix = context.getTransform();
+      const transformX =
+        this.x * transformMatrix.a +
+        this.y * transformMatrix.c +
+        transformMatrix.e;
+      const transformY =
+        this.x * transformMatrix.b +
+        this.y * transformMatrix.d +
+        transformMatrix.f -
+        window.scrollY;
 
-      const getX = (x: number, y: number) => {
-        return x * Math.cos(rotationRadians) + y * Math.sin(rotationRadians);
-      };
-      const getY = (x: number, y: number) => {
-        return (
-          x * -1 * Math.sin(rotationRadians) + y * Math.cos(rotationRadians)
-        );
-      };
+      if (
+        mousePosRef.current &&
+        mousePosRef.current.x - transformX < 50 &&
+        mousePosRef.current.x - transformX > -50 &&
+        mousePosRef.current.y - transformY < 50 &&
+        mousePosRef.current.y - transformY > -50
+      ) {
+        // context.fillStyle = "red";
+        if (this.shadowModifier < 15) {
+          this.shadowModifier += 5;
+        }
+      } else if (this.shadowModifier >= 1) {
+        this.shadowModifier -= 1;
+      }
 
-      const currentX =
-        this.x * Math.cos(rotationRadians) + this.y * Math.sin(rotationRadians);
-      const currentY =
-        this.x * -1 * Math.sin(rotationRadians) +
-        this.y * Math.cos(rotationRadians);
-
-      // console.log(this.x, this.y);
-      // console.log(currentX, currentY);
-      // if (mousePosRef.current)
-      //   console.log(getX(mousePosRef.current.x, mousePosRef.current.y));
-
-      // if (
-      //   mouseCoords.x - currentX < 150 &&
-      //   mouseCoords.x - currentX > -150 &&
-      //   mouseCoords.y - currentY < 150 &&
-      //   mouseCoords.y - currentY > -150
-      // ) {
-      //   // if (this.shadowModifier < 20) {
-      //   //   this.shadowModifier += 1;
-      //   // }
-      //   // } else if (this.shadowModifier > 0) {
-      //   context.fillStyle = "red";
-      // } else {
-      //   // this.shadowModifier -= 1;
-      //   context.fillStyle = this.color;
-      // }
-
-      context.shadowColor = this.color;
-      // if (this.shadowModifier > 0) context.shadowColor = "red";
-      context.shadowBlur = 5 * this.radius;
       context.fillStyle = this.color;
+      context.shadowColor = this.color + "80";
+      // if (this.shadowModifier > 0) context.shadowColor = "red";
+      context.shadowBlur = Math.max(this.shadowModifier, 0);
       context.fill();
       context.closePath();
+
+      // for (const singleDot of dotArr) {
+      //   if (singleDot.x !== this.x && singleDot.y !== this.y) {
+      //     const xDist = singleDot.x - this.x;
+      //     const yDist = singleDot.y - this.y;
+      //     const dist = Math.sqrt(xDist * xDist + yDist * yDist);
+      //     if (dist < 100) {
+      //       context.beginPath();
+      //       context.strokeStyle = "#fff";
+      //       context.lineWidth = 2;
+      //       context.moveTo(singleDot.x, singleDot.y);
+      //       context.lineTo(this.x, this.y);
+      //       context.stroke();
+      //       context.closePath();
+      //     }
+      //   }
+      // }
     }
 
-    update(context: ContextType, rotationRadians: number) {
+    update(context: ContextType) {
       if (!context) return;
-      this.create(context, rotationRadians);
+      this.create(context);
     }
   }
 
   const createDotArr = () => {
     const dotArr = [];
-    for (let i = 0; i < 50; i++) {
-      const canvasWidth = width + 300;
-      const canvasHeight = height + 300;
-
+    const canvasWidth = width + 300;
+    const canvasHeight = height + 300;
+    const canvasSize = canvasHeight * canvasWidth;
+    for (let i = 0; i < canvasSize * 0.00025; i++) {
       const x = Math.random() * canvasWidth - canvasWidth / 2;
       const y = Math.random() * canvasHeight - canvasHeight / 2;
-      const radius = 4 * Math.random();
+      // const radius = 3 * Math.random() + 1;
+      const radius = 0;
       const color = colorArr[Math.floor(Math.random() * colorArr.length)];
 
       dotArr.push(new Dot(x, y, radius, color));
@@ -150,9 +150,28 @@ const Canvas = ({ width, height }: PropsType) => {
       context.save();
       context.translate(width / 2, height / 2);
       context.rotate(rotationRadians);
+
       for (const dot of dotArr) {
-        dot.update(context, rotationRadians);
+        dot.update(context);
+
+        for (const singleDot of dotArr) {
+          if (singleDot !== dot) {
+            const xDist = singleDot.x - dot.x;
+            const yDist = singleDot.y - dot.y;
+            const dist = Math.sqrt(xDist * xDist + yDist * yDist);
+            if (dist < 100) {
+              context.beginPath();
+              context.strokeStyle = "#EEEEEE";
+              context.lineWidth = 2;
+              context.moveTo(singleDot.x, singleDot.y);
+              context.lineTo(dot.x, dot.y);
+              context.stroke();
+              context.closePath();
+            }
+          }
+        }
       }
+
       context.restore();
     },
     [dotArr]
@@ -173,18 +192,9 @@ const Canvas = ({ width, height }: PropsType) => {
     if (context) renderCanvas();
 
     return () => window.cancelAnimationFrame(animationID);
-  }, [animate]);
+  }, [animate, width, height]);
 
-  // useEffect(() => console.log(mousePosition), [mousePosition]);
-
-  return (
-    <canvas
-      width={width}
-      height={height}
-      ref={ref}
-      onMouseMove={handleMousePosition}
-    ></canvas>
-  );
+  return <canvas width={width} height={height} ref={ref}></canvas>;
 };
 
 export default Canvas;
