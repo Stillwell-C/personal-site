@@ -59,12 +59,15 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   return (
     <section
       id='hero'
-      className='min-h-screen h-screen overflow-hidden bg-[#222] relative text-white'
+      className='min-h-screen h-screen overflow-hidden bg-[#444] relative text-white'
       ref={targetRef}
       onMouseMove={handleMousePosition}
     >
       <div className='absolute h-full w-full left-0 top-0'>
-        <motion.div style={{ opacity }} className='pt-hero px-20'>
+        <motion.div
+          style={{ opacity }}
+          className='pt-hero px-20 flex flex-col items-end'
+        >
           <h2 className='mb-4'>
             <span ref={ref} className='text-6xl'>
               Christopher Stillwell
