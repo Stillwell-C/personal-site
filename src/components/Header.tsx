@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 type PropsType = {
   collapseNav: boolean;
+  navColorShift: boolean;
 };
 
 const fullScreenVariants = {
@@ -40,9 +41,13 @@ const mobileVariants = {
   },
 };
 
-const Header = ({ collapseNav }: PropsType) => {
+const Header = ({ collapseNav, navColorShift }: PropsType) => {
   return (
-    <header className='fixed top-0 py-12 px-8 w-full flex justify-between z-10 pointer-events-none'>
+    <header
+      className={`fixed top-0 py-12 px-8 w-full flex justify-between z-10 pointer-events-none ${
+        navColorShift ? "text-black" : "text-white"
+      }`}
+    >
       <div>
         <h1>
           <Link
@@ -68,7 +73,7 @@ const Header = ({ collapseNav }: PropsType) => {
               animate='animateMob'
               exit='exitMob'
             >
-              <MobileNav />
+              <MobileNav navColorShift={navColorShift} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -87,7 +92,7 @@ const Header = ({ collapseNav }: PropsType) => {
       </div>
       {/* Mobile */}
       <div className='md:hidden'>
-        <MobileNav />
+        <MobileNav navColorShift={navColorShift} />
       </div>
     </header>
   );

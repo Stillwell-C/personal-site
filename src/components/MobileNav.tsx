@@ -51,18 +51,26 @@ const listItemVariants = {
   },
 };
 
-const MobileNav = () => {
+type PropsType = {
+  navColorShift: boolean;
+};
+
+const MobileNav = ({ navColorShift }: PropsType) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClose = () => setOpen(false);
 
   return (
     <div className=' z-[99999999] pointer-events-auto'>
-      <MobileNavHamburgerBtn open={open} setOpen={setOpen} />
+      <MobileNavHamburgerBtn
+        navColorShift={navColorShift}
+        open={open}
+        setOpen={setOpen}
+      />
       <AnimatePresence>
         {open && (
           <motion.div
-            className='fixed top-0 right-0 h-screen origin-top bg-prussian-blue text-white w-screen sm:w-80'
+            className='fixed top-0 right-0 h-screen origin-top bg-[#222] text-white w-screen sm:w-80'
             initial='initial'
             animate='animate'
             exit='exit'
