@@ -86,7 +86,7 @@ const Canvas = ({ width, height, mousePosition }: PropsType) => {
       }
 
       context.fillStyle = this.color;
-      context.shadowColor = this.color + "80";
+      context.shadowColor = this.color + "50";
       // if (this.shadowModifier > 0) context.shadowColor = "red";
       context.shadowBlur = Math.max(this.shadowModifier, 0);
       context.fill();
@@ -161,7 +161,8 @@ const Canvas = ({ width, height, mousePosition }: PropsType) => {
             const dist = Math.sqrt(xDist * xDist + yDist * yDist);
             if (dist < 100) {
               context.beginPath();
-              context.strokeStyle = "#EEEEEE";
+              // context.strokeStyle = "#BEBEBE";
+              context.strokeStyle = "#A9A9A9";
               context.lineWidth = 2;
               context.moveTo(singleDot.x, singleDot.y);
               context.lineTo(dot.x, dot.y);
