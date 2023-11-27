@@ -5,6 +5,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Lenis from "@studio-freight/lenis";
 
 function App() {
   const [collapseNav, setCollapseNav] = useState<boolean>(false);
@@ -18,6 +19,21 @@ function App() {
   };
 
   const scrollObserver = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    // lenis.on("scroll", (e) => {
+    //   console.log(e);
+    // });
+
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
 
   useEffect(() => {
     const collapseNavCheck = new IntersectionObserver((entries) => {
