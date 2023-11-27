@@ -31,6 +31,11 @@ const Canvas = ({ width, height, mousePosition }: PropsType) => {
     "#F5F5F5",
     "#F0F0F0",
     "#E8E8E8",
+    "#E5E5E5",
+    "#E0E0E0",
+    "#D8D8D8",
+    "#D5D5D5",
+    "#D0D0D0",
   ];
 
   // const colorArr: string[] = ["black"];
@@ -118,8 +123,9 @@ const Canvas = ({ width, height, mousePosition }: PropsType) => {
 
   const createDotArr = () => {
     const dotArr = [];
-    const canvasWidth = width + 300;
-    const canvasHeight = height + 300;
+    const enlargeFactor = Math.max(width, height) * 0.3;
+    const canvasWidth = width + enlargeFactor;
+    const canvasHeight = height + enlargeFactor;
     const canvasSize = canvasHeight * canvasWidth;
     for (let i = 0; i < canvasSize * 0.00025; i++) {
       const x = Math.random() * canvasWidth - canvasWidth / 2;
@@ -163,7 +169,7 @@ const Canvas = ({ width, height, mousePosition }: PropsType) => {
               context.beginPath();
               // context.strokeStyle = "#BEBEBE";
               context.strokeStyle = "#A9A9A9";
-              context.lineWidth = 2;
+              context.lineWidth = 1;
               context.moveTo(singleDot.x, singleDot.y);
               context.lineTo(dot.x, dot.y);
               context.stroke();
@@ -187,6 +193,7 @@ const Canvas = ({ width, height, mousePosition }: PropsType) => {
     const renderCanvas = () => {
       animationID = window.requestAnimationFrame(renderCanvas);
       animate(context, rotationRadians);
+      if (rotationRadians >= Math.PI * 2) rotationRadians = 0;
       rotationRadians += 0.0001;
     };
 
