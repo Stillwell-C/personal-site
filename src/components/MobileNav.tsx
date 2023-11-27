@@ -70,7 +70,7 @@ const MobileNav = ({ navColorShift }: PropsType) => {
       <AnimatePresence>
         {open && (
           <motion.div
-            className='fixed top-0 right-0 h-screen origin-top bg-[#222] text-white w-screen sm:w-80'
+            className='fixed top-0 right-0 max-sm:left-0 h-screen origin-top bg-[#333] text-white w-screen md:w-80'
             initial='initial'
             animate='animate'
             exit='exit'
@@ -78,7 +78,7 @@ const MobileNav = ({ navColorShift }: PropsType) => {
           >
             <motion.nav>
               <motion.ul
-                className='mt-24 px-10'
+                className='mt-24 px-10 w-full flex flex-col gap-2 items-center md:items-start'
                 variants={listVariants}
                 initial='initial'
                 animate='open'
