@@ -66,10 +66,10 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
       <div className='absolute h-full w-full left-0 top-0'>
         <motion.div
           style={{ opacity }}
-          className='pt-hero px-20 flex flex-col items-end'
+          className='pt-[70vh] sm:pt-[80vh] px-4 sm:px-10 md:px-20 w-full flex flex-col items-end text-right'
         >
           <h2 className='mb-4'>
-            <span ref={ref} className='text-6xl'>
+            <span ref={ref} className='text-5xl sm:text-6xl'>
               Christopher Stillwell
             </span>
           </h2>
