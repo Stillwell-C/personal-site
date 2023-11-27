@@ -63,10 +63,10 @@ const Contact = () => {
   return (
     <section
       id='contact'
-      className='h-screen w-full flex justify-center items-center bg-battleship-gray'
+      className='h-screen w-full flex justify-center items-center bg-[#444]'
     >
       <motion.div
-        className='h-full w-full flex items-center justify-between max-w-7xl px-12'
+        className='h-full w-full flex flex-col md:flex-row items-center justify-between max-w-7xl px-12'
         variants={variants}
         initial='initial'
         whileInView='animate'
@@ -192,7 +192,7 @@ const Contact = () => {
               </label>
             </div>
             <button
-              className='cursor-pointer text-white text-xl py-4 bg-prussian-blue rounded-lg z-[1]'
+              className='cursor-pointer text-white text-xl py-4 bg-[#ED474A] rounded-lg z-[1]'
               type='submit'
             >
               Send
