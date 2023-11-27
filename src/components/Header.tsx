@@ -57,7 +57,7 @@ const Header = ({ collapseNav, navColorShift }: PropsType) => {
             smooth={true}
             offset={0}
             duration={500}
-            className='text-3xl cursor-pointer pointer-events-auto'
+            className='text-4xl cursor-pointer pointer-events-auto'
           >
             CS
           </Link>
