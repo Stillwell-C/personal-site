@@ -5,7 +5,7 @@ import technologiesList from "./TechnologiesList";
 
 type Technology = {
   name: string;
-  icon: JSX.Element;
+  icon: JSX.Element | null;
 };
 
 export type Project = {
@@ -40,11 +40,11 @@ const projectsList: Project[] = [
     technologies: [
       technologiesList.javascript,
       technologiesList.react,
-      technologiesList.sass,
+      technologiesList.css,
       technologiesList.mongodb,
       technologiesList.expressjs,
       technologiesList.redux,
-      { name: "Supertest", icon: null },
+      technologiesList.jestsuper,
     ],
     siteLink: "https://wild-goose-chase.vercel.app/",
     githubLink: "https://github.com/Stillwell-C/blog-frontend",
