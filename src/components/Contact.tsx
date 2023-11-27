@@ -63,10 +63,10 @@ const Contact = () => {
   return (
     <section
       id='contact'
-      className='h-screen w-full flex justify-center items-center bg-[#444]'
+      className='min-h-screen w-full flex justify-center items-center bg-[#444] overflow-hidden py-10'
     >
       <motion.div
-        className='h-full w-full flex flex-col md:flex-row items-center justify-between max-w-7xl px-12'
+        className='h-full w-full flex flex-col md:flex-row items-center justify-between max-w-6xl px-20 md:px-12'
         variants={variants}
         initial='initial'
         whileInView='animate'
@@ -74,12 +74,12 @@ const Contact = () => {
       >
         <motion.div
           variants={variants}
-          className='flex flex-1 flex-col align-top gap-6 text-white pb-36'
+          className='flex flex-1 flex-col w-full min-w-[300px] max-w-[450px] justify-end md:items-top gap-6 text-white pb-8 md:pb-36'
         >
-          <h2 className='text-7xl mb-10'>Contact me:</h2>
+          <h2 className='text-5xl md:text-7xl mb-10'>Contact me:</h2>
           <motion.div variants={variants}>
-            <h3 className='text-4xl mb-2'>Mail:</h3>
-            <span className='text-2xl'>Fake email</span>
+            <h3 className='text-2xl md:text-4xl mb-2'>Mail:</h3>
+            <span className='text-xl md:text-2xl'>Fake email</span>
             {/* <span>{process.env.EMAIL}</span> */}
           </motion.div>
           {/* <motion.div>
@@ -88,13 +88,13 @@ const Contact = () => {
             <span>{process.env.EMAIL}</span>
           </motion.div> */}
         </motion.div>
-        <div className='relative pt-4 min-w-[300px] max-w-[450px] flex-1'>
+        <div className='relative pt-4 w-full min-w-[300px] max-w-[450px] flex-1'>
           <motion.div
             variants={iconDivVariants}
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
-            className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] z-0'
+            className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] md:w-[300px] lg:w-[400px] z-0'
           >
             <motion.svg
               variants={iconVariants}
@@ -123,7 +123,7 @@ const Contact = () => {
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
-            className='flex flex-col gap-8 w-full pt-10'
+            className='flex flex-col gap-8 w-full md:pt-10'
           >
             <div className='relative w-full h-14 overflow-hidden text-lg rounded-lg'>
               <input
