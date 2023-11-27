@@ -34,7 +34,6 @@ const iconVariants = {
     rotate: 0,
   },
   animate: {
-    rotate: 720,
     transition: {
       duration: 0.7,
       delay: 2.5,
