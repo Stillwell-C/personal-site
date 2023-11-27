@@ -116,7 +116,7 @@ const SingleProject = ({ project, index }: PropsType) => {
             {projectInformation}
           </motion.div>
         </motion.div>
-        <div className='sm:hidden flex justify-center items-center'>
+        <div className='sm:hidden px-4 flex justify-center items-center'>
           <div className='w-[90%'>{projectInformation}</div>
         </div>
       </div>
