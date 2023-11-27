@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { CSSProperties, useEffect, useRef } from "react";
 import { Project } from "../Data/ProjectsList";
 import { useScroll, motion, useTransform, MotionValue } from "framer-motion";
 
@@ -10,7 +10,7 @@ type PropsType = {
 
 const articleVariants = {
   initial: {
-    x: 500,
+    x: "var(--x-from)",
   },
   animate: {
     x: 0,
@@ -83,7 +83,6 @@ const SingleProject = ({ project, index }: PropsType) => {
   return (
     <motion.article
       style={{
-        // scale: scrollYProgress,
         opacity: opacityShift,
       }}
       variants={articleVariants}
@@ -91,7 +90,7 @@ const SingleProject = ({ project, index }: PropsType) => {
       whileInView='animate'
       viewport={{ once: true }}
       ref={ref}
-      className='flex items-center justify-center w-full'
+      className='flex items-center justify-center w-full sm:[--x-from:500px]'
     >
       <div className='w-full max-w-7xl flex flex-col sm:flex-row items-center gap-8 px-16 relative justify-center'>
         <div className='sm:hidden text-2xl -mb-6'>
@@ -117,7 +116,7 @@ const SingleProject = ({ project, index }: PropsType) => {
           </motion.div>
         </motion.div>
         <div className='sm:hidden px-4 flex justify-center items-center'>
-          <div className='w-[90%'>{projectInformation}</div>
+          <div className='w-[90%]'>{projectInformation}</div>
         </div>
       </div>
     </motion.article>
