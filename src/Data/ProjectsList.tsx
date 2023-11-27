@@ -30,7 +30,7 @@ const projectsList: Project[] = [
       technologiesList.expressjs,
       technologiesList.tanstack,
     ],
-    siteLink: "https://gram-copy.vercel.app/",
+    siteLink: "https://gram-copy.vercel.app/explore",
     githubLink: "https://github.com/Stillwell-C/gram-copy",
   },
   {
