@@ -5,6 +5,7 @@ import { useScroll, motion, useTransform, MotionValue } from "framer-motion";
 type PropsType = {
   project: Project;
   scrollYProgress?: MotionValue<number>;
+  index: number;
 };
 
 const articleVariants = {
@@ -19,7 +20,7 @@ const articleVariants = {
   },
 };
 
-const SingleProject = ({ project }: PropsType) => {
+const SingleProject = ({ project, index }: PropsType) => {
   const ref = useRef<HTMLElement>(null);
 
   const { scrollYProgress: opacityShift } = useScroll({
@@ -32,9 +33,52 @@ const SingleProject = ({ project }: PropsType) => {
     offset: ["end end", "end start"],
   });
 
-  const yImg = useTransform(scrollYProgress, [0, 1], [0, -170]);
+  const yImg = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const yInfo = useTransform(scrollYProgress, [0, 1], [0, 0]);
   const xInfo = useTransform(scrollYProgress, [0, 1], [0, 20]);
+
+  const even = index % 2 === 0;
+
+  const projectInformation = (
+    <>
+      <h3 className='max-sm:hidden text-xl mb-4'>{project.name}</h3>
+      <p className='mb-2 text-md text-[#333]'>{project.description}</p>
+      <p className='mb-2'>Built using:</p>
+      <ul className='flex flex-wrap mb-4'>
+        {project.technologies.map((technology) => (
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className='flex justify-start items-center gap-1 mb-2 mr-4'
+          >
+            {technology.icon && (
+              <div className='w-6 h-6 flex items-center justify-start'>
+                {technology.icon}
+              </div>
+            )}
+            <span className='rounded-md' key={technology?.name}>
+              {technology?.name}
+            </span>
+          </motion.div>
+        ))}
+      </ul>
+      <div className='flex justify-end gap-2 '>
+        <a
+          className='border p-2 rounded-md hover:bg-black hover:text-white'
+          href={project.siteLink}
+          target='_blank'
+        >
+          View Site
+        </a>
+        <a
+          className='border p-2 rounded-md hover:bg-black hover:text-white'
+          href={project.githubLink}
+          target='_blank'
+        >
+          View Code
+        </a>
+      </div>
+    </>
+  );
 
   return (
     <motion.article
@@ -49,55 +93,32 @@ const SingleProject = ({ project }: PropsType) => {
       ref={ref}
       className='flex items-center justify-center w-full'
     >
-      <div className='max-w-7xl flex flex-col items-center justify-center gap-8 px-16 relative'>
-        <motion.div style={{ y: yImg }} className='flex-1 max-w-3xl '>
+      <div className='w-full max-w-7xl flex flex-col sm:flex-row items-center gap-8 px-16 relative justify-center'>
+        <div className='sm:hidden text-2xl -mb-6'>
+          <h3>{project.name}</h3>
+        </div>
+        <motion.div
+          className={`flex-1 flex max-w-3xl relative justify-center ${
+            even ? "md:justify-start" : "md:justify-end"
+          }`}
+        >
           <img
             src={project.image}
             alt={project.name}
-            className='h-full w-full object-cover rounded-md'
+            className='h-full object-cover rounded-md w-[90%]'
           />
+          <motion.div
+            style={{ y: yImg }}
+            className={`max-sm:hidden sm:absolute max-w-[85%] md:max-w-md border border-[#cccccc] z-[2] bg-white p-4 rounded-lg shadow-lg  sm:max-md:-bottom-[60%] md:top-1/3 ${
+              even ? "md:-right-0 lg:-right-[10%]" : "md:-left-0 lg:-left-[10%]"
+            }`}
+          >
+            {projectInformation}
+          </motion.div>
         </motion.div>
-        <motion.div
-          //   style={{ y: yInfo, x: xInfo }}
-          className='absolute max-w-md border z-[2] bg-white p-8 bottom-15 -right-10 rounded-lg'
-        >
-          <h3 className='text-2xl mb-6'>{project.name}</h3>
-          <p className='mb-4'>{project.description}</p>
-          <p className='mb-2'>Made using:</p>
-          <ul className='flex flex-wrap mb-8'>
-            {project.technologies.map((technology) => (
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className='flex justify-start items-center gap-1 mb-2 mr-4'
-              >
-                {technology.icon && (
-                  <div className='w-6 h-6 flex items-center justify-start'>
-                    {technology.icon}
-                  </div>
-                )}
-                <span className='rounded-md' key={technology?.name}>
-                  {technology?.name}
-                </span>
-              </motion.div>
-            ))}
-          </ul>
-          <div className='flex justify-end gap-2 '>
-            <a
-              className='border p-2 rounded-md hover:bg-black hover:text-white'
-              href={project.siteLink}
-              target='_blank'
-            >
-              View Site
-            </a>
-            <a
-              className='border p-2 rounded-md hover:bg-black hover:text-white'
-              href={project.githubLink}
-              target='_blank'
-            >
-              View Code
-            </a>
-          </div>
-        </motion.div>
+        <div className='sm:hidden flex justify-center items-center'>
+          <div className='w-[90%'>{projectInformation}</div>
+        </div>
       </div>
     </motion.article>
   );
