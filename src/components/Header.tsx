@@ -44,8 +44,10 @@ const mobileVariants = {
 const Header = ({ collapseNav, navColorShift }: PropsType) => {
   return (
     <header
-      className={`fixed top-0 py-12 px-8 w-full flex justify-between z-10 pointer-events-none ${
-        navColorShift ? "text-black" : "text-white"
+      className={`fixed top-0 py-4 sm:py-8 md:py-12 px-4 md:px-8 w-full flex justify-between z-10 pointer-events-none ${
+        navColorShift
+          ? "text-black max-sm:bg-[#f5f5f5] bg-opacity-90"
+          : "text-white"
       }`}
     >
       <div>
