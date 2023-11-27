@@ -14,9 +14,9 @@ const Projects = () => {
   console.log(scrollYProgress.get());
 
   return (
-    <section className='relative overflow-x-hidden mt-10' id='projects'>
-      <div className='h-full pb-40'>
-        <h2 className='mb-40 text-center text-4xl'>Projects</h2>
+    <section className='mt-20' id='projects'>
+      <h2 className='mb-40 text-center text-4xl'>Projects</h2>
+      <div className='overflow-x-hidden h-full pb-40'>
         <div
           ref={sectionref}
           className='flex flex-col gap-20 sm:gap-60 md:gap-20 mb-48'
