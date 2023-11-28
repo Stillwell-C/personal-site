@@ -44,7 +44,7 @@ const mobileVariants = {
 const Header = ({ collapseNav, navColorShift }: PropsType) => {
   return (
     <header
-      className={`fixed top-0 py-4 sm:py-8 md:py-12 px-4 md:px-8 w-full flex justify-between z-10 pointer-events-none ${
+      className={`fixed top-0 py-2 px-2 sm:py-8 md:py-10 sm:px-4 md:px-6 lg:px-8 w-full flex justify-between z-10 pointer-events-none ${
         navColorShift
           ? "text-black max-sm:bg-[#f5f5f5] bg-opacity-90"
           : "text-white"
@@ -59,7 +59,7 @@ const Header = ({ collapseNav, navColorShift }: PropsType) => {
             smooth={true}
             offset={0}
             duration={500}
-            className='text-4xl cursor-pointer pointer-events-auto'
+            className='text-3xl md:text-4xl cursor-pointer pointer-events-auto'
           >
             CS
           </Link>
