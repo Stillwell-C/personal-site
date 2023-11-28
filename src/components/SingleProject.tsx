@@ -62,13 +62,15 @@ const SingleProject = ({ project, index }: PropsType) => {
         ))}
       </ul>
       <div className='flex justify-end gap-2 '>
-        <a
-          className='border p-2 rounded-md hover:bg-black hover:text-white'
-          href={project.siteLink}
-          target='_blank'
-        >
-          View Site
-        </a>
+        {project.siteLink !== null && (
+          <a
+            className='border p-2 rounded-md hover:bg-black hover:text-white'
+            href={project.siteLink}
+            target='_blank'
+          >
+            View Site
+          </a>
+        )}
         <a
           className='border p-2 rounded-md hover:bg-black hover:text-white'
           href={project.githubLink}
