@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { PulseLoader } from "react-spinners";
 
 const ContactForm = () => {
   const errRef = useRef<HTMLParagraphElement>(null);
@@ -10,6 +11,7 @@ const ContactForm = () => {
   const [message, setMessage] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [successMsg, setSuccessMsg] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (errorMsg.length) successRef?.current?.focus();
@@ -21,6 +23,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     setErrorMsg("");
     setSuccessMsg("");
     if (!name.length) {
@@ -52,7 +55,9 @@ const ContactForm = () => {
       setMessage("");
 
       setSuccessMsg("Thank you. Your message has been sent.");
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       if (err instanceof Error) {
         setErrorMsg(err.message);
       } else {
@@ -60,6 +65,10 @@ const ContactForm = () => {
       }
     }
   };
+
+  const loadingSpinner = <PulseLoader color='#fff' size={10} />;
+
+  const buttonDisplay = loading ? loadingSpinner : "Send";
 
   return (
     <form
@@ -149,8 +158,9 @@ const ContactForm = () => {
       <button
         className='cursor-pointer text-white text-xl py-4 bg-[#ED474A] rounded-lg z-[1] hover:bg-[#df5557]'
         type='submit'
+        disabled={loading}
       >
-        Send
+        {buttonDisplay}
       </button>
     </form>
   );
