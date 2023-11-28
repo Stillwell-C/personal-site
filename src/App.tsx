@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Lenis from "@studio-freight/lenis";
+import Footer from "./components/Footer";
 
 function App() {
   const [collapseNav, setCollapseNav] = useState<boolean>(false);
@@ -73,6 +74,7 @@ function App() {
         <Skills />
         <Projects />
         <Contact />
+        <Footer />
       </main>
     </div>
   );
