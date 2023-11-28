@@ -1,6 +1,7 @@
 import gramCopyImg from "../assets/GramCopy.png";
 import wildGooseChase from "../assets/WildGooseChase.png";
 import photoTag from "../assets/PhotoTag.png";
+import portfolio from "../assets/PortfolioSite.png";
 import technologiesList from "./TechnologiesList";
 
 type Technology = {
@@ -13,7 +14,7 @@ export type Project = {
   image: string;
   description: string;
   technologies: Technology[];
-  siteLink: string;
+  siteLink: string | null;
   githubLink: string;
 };
 
@@ -63,6 +64,19 @@ const projectsList: Project[] = [
     ],
     siteLink: "https://photo-tag-sql.vercel.app/",
     githubLink: "https://github.com/Stillwell-C/photoTag/tree/postgreSQL",
+  },
+  {
+    name: "Portfolio Site",
+    image: portfolio,
+    description:
+      "The site you're on now. Animated & responsive. View code below.",
+    technologies: [
+      technologiesList.typescript,
+      technologiesList.react,
+      technologiesList.tailwind,
+    ],
+    siteLink: null,
+    githubLink: "https://github.com/Stillwell-C/personal-site",
   },
 ];
 
