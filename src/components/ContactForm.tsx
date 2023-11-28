@@ -1,19 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 const ContactForm = () => {
   const errRef = useRef<HTMLParagraphElement>(null);
+  const successRef = useRef<HTMLParagraphElement>(null);
 
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState<string>("");
+  const [successMsg, setSuccessMsg] = useState<string>("");
 
   useEffect(() => {
-    if (errorMsg.length) errRef?.current?.focus();
+    if (errorMsg.length) successRef?.current?.focus();
   }, [errorMsg]);
 
-  const handleSubmit = () => {
+  useEffect(() => {
+    if (successMsg.length) errRef?.current?.focus();
+  }, [successMsg]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setErrorMsg("");
+    setSuccessMsg("");
     if (!name.length) {
       setErrorMsg("Please include your name.");
       return;
@@ -26,12 +35,48 @@ const ContactForm = () => {
       setErrorMsg("Please include a message.");
       return;
     }
+
+    try {
+      await axios({
+        method: "post",
+        url: "http://localhost:3500/formsubmission",
+        data: {
+          name,
+          email,
+          message,
+        },
+      });
+
+      setName("");
+      setEmail("");
+      setMessage("");
+
+      setSuccessMsg("Thank you. Your message has been sent.");
+    } catch (err) {
+      if (err instanceof Error) {
+        setErrorMsg(err.message);
+      } else {
+        setErrorMsg("An unknown error occurred. Please try again.");
+      }
+    }
   };
 
   return (
-    <form className='flex flex-col gap-8 w-full md:pt-10'>
-      <div className='px-2 text-lg text-red-600 -mb-4'>
-        <p ref={errRef}>{errorMsg}</p>
+    <form
+      className='flex flex-col gap-8 w-full md:pt-10'
+      onSubmit={handleSubmit}
+    >
+      <div className='px-2 text-lg  -mb-4'>
+        {errorMsg.length > 0 && (
+          <p className='text-red-500' ref={errRef}>
+            {errorMsg}
+          </p>
+        )}
+        {successMsg.length > 0 && (
+          <p className='text-green-500' ref={successRef}>
+            {successMsg}
+          </p>
+        )}
       </div>
       <div className='relative w-full h-14 overflow-hidden text-lg rounded-lg'>
         <input
@@ -40,6 +85,7 @@ const ContactForm = () => {
           name='name'
           id='name'
           onChange={(e) => setName(e.target.value)}
+          value={name}
           autoComplete='off'
           maxLength={250}
           aria-invalid={!name.length}
@@ -61,6 +107,7 @@ const ContactForm = () => {
           name='email'
           id='email'
           onChange={(e) => setEmail(e.target.value)}
+          value={email}
           autoComplete='off'
           maxLength={254}
           aria-invalid={!email.length}
@@ -80,6 +127,7 @@ const ContactForm = () => {
           className={`peer px-4 pt-6 pb-2 w-full h-full focus:outline-none text-base resize-none`}
           name='message'
           id='message'
+          value={message}
           onChange={(e) => setMessage(e.target.value)}
           aria-invalid={!message.length}
           required
