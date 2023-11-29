@@ -53,9 +53,10 @@ const listItemVariants = {
 
 type PropsType = {
   navColorShift: boolean;
+  bottomIntersection: boolean;
 };
 
-const MobileNav = ({ navColorShift }: PropsType) => {
+const MobileNav = ({ navColorShift, bottomIntersection }: PropsType) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClose = () => setOpen(false);
@@ -64,6 +65,7 @@ const MobileNav = ({ navColorShift }: PropsType) => {
     <div className=' z-[99999999] pointer-events-auto'>
       <MobileNavHamburgerBtn
         navColorShift={navColorShift}
+        bottomIntersection={bottomIntersection}
         open={open}
         setOpen={setOpen}
       />

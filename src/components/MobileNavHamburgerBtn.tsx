@@ -4,9 +4,15 @@ type PropType = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   navColorShift: boolean;
+  bottomIntersection: boolean;
 };
 
-const MobileNavHamburgerBtn = ({ open, setOpen, navColorShift }: PropType) => {
+const MobileNavHamburgerBtn = ({
+  open,
+  setOpen,
+  navColorShift,
+  bottomIntersection,
+}: PropType) => {
   return (
     <button
       className='relative cursor-pointer w-8 h-8 z-10 pointer-events-auto'
@@ -17,12 +23,18 @@ const MobileNavHamburgerBtn = ({ open, setOpen, navColorShift }: PropType) => {
           open
             ? "before:bg-white after:bg-white bg-transparent before:translate-y-0 before:rotate-45 after:translate-y-0 after:-rotate-45 rotate-[360deg]"
             : `${
-                navColorShift ? "bg-black" : "bg-white"
+                navColorShift
+                  ? "bg-black"
+                  : `bg-white ${bottomIntersection ? "max-sm:bg-black" : ""}`
               } before:-translate-y-2.5 after:translate-y-2.5`
         } ${
           navColorShift
             ? "before:bg-black after:bg-black"
-            : "before:bg-white after:bg-white "
+            : `before:bg-white after:bg-white ${
+                bottomIntersection
+                  ? "max-sm:before:bg-black max-sm:after:bg-black"
+                  : ""
+              }`
         }`}
       ></div>
     </button>

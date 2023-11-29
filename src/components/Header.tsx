@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 type PropsType = {
   collapseNav: boolean;
   navColorShift: boolean;
+  bottomIntersection: boolean;
 };
 
 const fullScreenVariants = {
@@ -41,13 +42,21 @@ const mobileVariants = {
   },
 };
 
-const Header = ({ collapseNav, navColorShift }: PropsType) => {
+const Header = ({
+  collapseNav,
+  navColorShift,
+  bottomIntersection,
+}: PropsType) => {
   return (
     <header
       className={`fixed top-0 py-2 px-2 sm:py-8 md:py-10 sm:px-4 md:px-6 lg:px-8 w-full flex justify-between z-10 pointer-events-none ${
         navColorShift
           ? "text-black max-sm:bg-[#f5f5f5] bg-opacity-90"
-          : "text-white"
+          : `text-white ${
+              bottomIntersection
+                ? "max-sm:bg-[#f5f5f5] max-sm:text-black max-sm:bg-opacity-90"
+                : ""
+            }`
       }`}
     >
       <div>
@@ -75,7 +84,10 @@ const Header = ({ collapseNav, navColorShift }: PropsType) => {
               animate='animateMob'
               exit='exitMob'
             >
-              <MobileNav navColorShift={navColorShift} />
+              <MobileNav
+                navColorShift={navColorShift}
+                bottomIntersection={bottomIntersection}
+              />
             </motion.div>
           )}
         </AnimatePresence>
@@ -94,7 +106,10 @@ const Header = ({ collapseNav, navColorShift }: PropsType) => {
       </div>
       {/* Mobile */}
       <div className='md:hidden'>
-        <MobileNav navColorShift={navColorShift} />
+        <MobileNav
+          navColorShift={navColorShift}
+          bottomIntersection={bottomIntersection}
+        />
       </div>
     </header>
   );
