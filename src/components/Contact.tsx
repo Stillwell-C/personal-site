@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ForwardedRef, forwardRef } from "react";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 
@@ -55,11 +55,12 @@ const formVariants = {
   },
 };
 
-const Contact = () => {
+const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   return (
     <section
       id='contact'
       className='min-h-screen w-full flex justify-center items-center bg-[#444] overflow-hidden py-10'
+      ref={ref}
     >
       <motion.div
         className='h-full w-full flex flex-col md:flex-row items-center justify-between max-w-6xl px-20 md:px-12'
@@ -192,6 +193,6 @@ const Contact = () => {
       </motion.div>
     </section>
   );
-};
+});
 
 export default Contact;
