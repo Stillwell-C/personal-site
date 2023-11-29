@@ -11,15 +11,28 @@ import Footer from "./components/Footer";
 function App() {
   const [collapseNav, setCollapseNav] = useState<boolean>(false);
   const [navColorShift, setNavColorShift] = useState<boolean>(false);
+  const [heroIntersection, setHeroIntersection] = useState<boolean>(false);
+  const [projectsIntersection, setProjectsIntersection] =
+    useState<boolean>(false);
+  const [contactIntersection, setContactIntersection] =
+    useState<boolean>(false);
 
   const collapseNavOptions = {
     rootMargin: "-150px 0px 0px 0px",
   };
-  const navColorShiftOptions = {
-    rootMargin: "0px 0px 0px 0px",
+  const navColorShiftHeroOptions = {
+    rootMargin: "-50px 0px 0px 0px",
+  };
+  const navColorShiftProjectsOptions = {
+    rootMargin: "100px 0px 0px 0px",
+  };
+  const navColorShiftContactOptions = {
+    rootMargin: "-100px 0px 0px 0px",
   };
 
-  const scrollObserver = useRef<HTMLElement>(null);
+  const heroScrollObserver = useRef<HTMLDivElement>(null);
+  const projectsScrollObserver = useRef<HTMLElement>(null);
+  const contactScrollObserver = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -41,39 +54,95 @@ function App() {
       const entry = entries[0];
       if (!entry.isIntersecting) {
         setCollapseNav(true);
+        console.log("true");
       }
       if (entry.isIntersecting) {
         setCollapseNav(false);
+        console.log("false");
       }
     }, collapseNavOptions);
 
     const navColorShiftCheck = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (!entry.isIntersecting) {
-        setNavColorShift(true);
+        setHeroIntersection(true);
       }
       if (entry.isIntersecting) {
-        setNavColorShift(false);
+        setHeroIntersection(false);
       }
-    }, navColorShiftOptions);
+    }, navColorShiftHeroOptions);
 
-    if (scrollObserver.current) {
-      collapseNavCheck.observe(scrollObserver.current);
-      navColorShiftCheck.observe(scrollObserver.current);
+    if (heroScrollObserver.current) {
+      collapseNavCheck.observe(heroScrollObserver.current);
+      navColorShiftCheck.observe(heroScrollObserver.current);
     }
-  }, [scrollObserver?.current]);
+  }, [heroScrollObserver?.current]);
 
-  useEffect(() => console.log("state", collapseNav), [collapseNav]);
+  useEffect(() => {
+    const navColorShiftCheck = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) {
+        setContactIntersection(false);
+      }
+      if (entry.isIntersecting) {
+        setContactIntersection(true);
+      }
+    }, navColorShiftProjectsOptions);
+
+    if (contactScrollObserver.current) {
+      navColorShiftCheck.observe(contactScrollObserver.current);
+    }
+  }, [contactScrollObserver?.current]);
+
+  useEffect(() => {
+    const navColorShiftCheck = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) {
+        setProjectsIntersection(false);
+      }
+      if (entry.isIntersecting) {
+        setProjectsIntersection(true);
+      }
+    }, navColorShiftContactOptions);
+
+    if (projectsScrollObserver.current) {
+      navColorShiftCheck.observe(projectsScrollObserver.current);
+    }
+  }, [projectsScrollObserver?.current]);
+
+  useEffect(() => {
+    const navColorShiftCheck = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) {
+        setContactIntersection(false);
+      }
+      if (entry.isIntersecting) {
+        setContactIntersection(true);
+      }
+    });
+
+    if (contactScrollObserver.current) {
+      navColorShiftCheck.observe(contactScrollObserver.current);
+    }
+  }, [contactScrollObserver?.current]);
+
+  useEffect(() => {
+    if (!heroIntersection || (contactIntersection && !projectsIntersection)) {
+      setNavColorShift(false);
+    } else {
+      setNavColorShift(true);
+    }
+  }, [heroIntersection, contactIntersection, projectsIntersection]);
 
   return (
-    <div className='bg-white-smoke'>
+    <div>
       <Header collapseNav={collapseNav} navColorShift={navColorShift} />
       <main>
-        <Hero ref={scrollObserver} />
+        <Hero ref={heroScrollObserver} />
         <About />
         <Skills />
-        <Projects />
-        <Contact />
+        <Projects ref={projectsScrollObserver} />
+        <Contact ref={contactScrollObserver} />
         <Footer />
       </main>
     </div>
