@@ -302,11 +302,11 @@ const skillsList: SkillType[] = [
         preserveAspectRatio='xMidYMid'
         fill='#000000'
       >
-        <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+        <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
         <g
           id='SVGRepo_tracerCarrier'
-          stroke-linecap='round'
-          stroke-linejoin='round'
+          strokeLinecap='round'
+          strokeLinejoin='round'
         ></g>
         <g id='SVGRepo_iconCarrier'>
           <g>
@@ -357,7 +357,7 @@ const skillsList: SkillType[] = [
         x='0px'
         y='0px'
         viewBox='0 2 48 48'
-        enable-background='new 0 2 48 48'
+        enableBackground='new 0 2 48 48'
       >
         <polygon
           fill='#ECEFF1'
