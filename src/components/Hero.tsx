@@ -15,7 +15,7 @@ type MouseCoordType = {
   y: number;
 };
 
-const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
+const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
   const targetRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -63,15 +63,13 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
       ref={targetRef}
       onMouseMove={handleMousePosition}
     >
-      <div className='absolute h-full w-full left-0 top-0'>
+      <div ref={ref} className='absolute h-full w-full left-0 top-0'>
         <motion.div
           style={{ opacity }}
           className='pt-[70vh] sm:pt-[80vh] px-4 sm:px-10 md:px-20 w-full flex flex-col items-end text-right'
         >
           <h2 className='mb-4'>
-            <span ref={ref} className='text-5xl sm:text-6xl'>
-              Christopher Stillwell
-            </span>
+            <span className='text-5xl sm:text-6xl'>Christopher Stillwell</span>
           </h2>
           <div className='flex gap-2'>
             <a href='https://github.com/Stillwell-C' target='_blank'>
