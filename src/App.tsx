@@ -37,10 +37,6 @@ function App() {
   useEffect(() => {
     const lenis = new Lenis();
 
-    // lenis.on("scroll", (e) => {
-    //   console.log(e);
-    // });
-
     function raf(time: any) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -54,11 +50,9 @@ function App() {
       const entry = entries[0];
       if (!entry.isIntersecting) {
         setCollapseNav(true);
-        console.log("true");
       }
       if (entry.isIntersecting) {
         setCollapseNav(false);
-        console.log("false");
       }
     }, collapseNavOptions);
 
