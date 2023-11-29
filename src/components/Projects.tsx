@@ -1,9 +1,9 @@
 import { motion, useScroll } from "framer-motion";
 import projectsList from "../Data/ProjectsList";
 import SingleProject from "./SingleProject";
-import { useRef } from "react";
+import { ForwardedRef, forwardRef, useRef } from "react";
 
-const Projects = () => {
+const Projects = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   const sectionref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -14,7 +14,7 @@ const Projects = () => {
   console.log(scrollYProgress.get());
 
   return (
-    <section className='mt-20' id='projects'>
+    <section ref={ref} className='mt-20' id='projects'>
       <h2 className='mb-40 text-center text-4xl'>Projects</h2>
       <div className='overflow-x-hidden h-full pb-40'>
         <div
@@ -33,6 +33,6 @@ const Projects = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Projects;
