@@ -21,13 +21,13 @@ function App() {
     rootMargin: "-150px 0px 0px 0px",
   };
   const navColorShiftHeroOptions = {
-    rootMargin: "-50px 0px 0px 0px",
+    rootMargin: "-100px 0px 0px 0px",
   };
   const navColorShiftProjectsOptions = {
-    rootMargin: "100px 0px 0px 0px",
+    rootMargin: "50px 0px 0px 0px",
   };
   const navColorShiftContactOptions = {
-    rootMargin: "-100px 0px 0px 0px",
+    rootMargin: "-40px 0px 0px 0px",
   };
 
   const heroScrollObserver = useRef<HTMLDivElement>(null);
@@ -136,7 +136,11 @@ function App() {
 
   return (
     <div>
-      <Header collapseNav={collapseNav} navColorShift={navColorShift} />
+      <Header
+        collapseNav={collapseNav}
+        navColorShift={navColorShift}
+        bottomIntersection={!projectsIntersection && contactIntersection}
+      />
       <main>
         <Hero ref={heroScrollObserver} />
         <About />
