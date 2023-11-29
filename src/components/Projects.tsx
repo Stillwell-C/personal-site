@@ -11,8 +11,6 @@ const Projects = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
     offset: ["start end", "start start"],
   });
 
-  console.log(scrollYProgress.get());
-
   return (
     <section ref={ref} className='mt-20' id='projects'>
       <h2 className='mb-40 text-center text-4xl'>Projects</h2>
