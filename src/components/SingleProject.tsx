@@ -49,15 +49,14 @@ const SingleProject = ({ project, index }: PropsType) => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             className='flex justify-start items-center gap-1 mb-2 mr-4'
+            key={technology.name}
           >
-            {technology.icon && (
+            {technology?.icon && (
               <div className='w-6 h-6 flex items-center justify-start'>
                 {technology.icon}
               </div>
             )}
-            <span className='rounded-md' key={technology?.name}>
-              {technology?.name}
-            </span>
+            <span className='rounded-md'>{technology?.name}</span>
           </motion.div>
         ))}
       </ul>
