@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { languages, frameworks, devTools, SkillType } from "../Data/SkillsData";
 
 type ListTypeArr = { title: string; skillList: SkillType[] }[];

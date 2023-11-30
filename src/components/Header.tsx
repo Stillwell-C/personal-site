@@ -1,4 +1,3 @@
-import React from "react";
 import FullScreenNav from "./FullScreenNav";
 import MobileNav from "./MobileNav";
 import { Link } from "react-scroll";

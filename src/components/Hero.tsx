@@ -7,7 +7,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import githubIcon from "../assets/github-icon-1.svg";
 import Canvas from "./Canvas";
 
 type MouseCoordType = {
@@ -15,7 +14,7 @@ type MouseCoordType = {
   y: number;
 };
 
-const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
+const Hero = forwardRef((ref: ForwardedRef<HTMLDivElement>) => {
   const targetRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,

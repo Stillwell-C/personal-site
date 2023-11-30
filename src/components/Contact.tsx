@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from "react";
+import { ForwardedRef, forwardRef } from "react";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 
@@ -55,7 +55,7 @@ const formVariants = {
   },
 };
 
-const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
+const Contact = forwardRef((ref: ForwardedRef<HTMLElement>) => {
   return (
     <section
       id='contact'
