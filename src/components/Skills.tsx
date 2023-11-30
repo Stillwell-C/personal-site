@@ -50,13 +50,11 @@ const Skills = () => {
         viewport={{ once: true }}
         custom={index}
         className='bg-white py-4 px-2 xl:px-4 rounded-lg'
+        key={list.title + index}
       >
         <h3 className='text-center text-2xl mb-4'>{list.title}</h3>
 
-        <ul
-          className='grid lg:gap-4 grid-cols-2 xl:grid-cols-3 w-72 md:w-52 lg:w-60 xl:w-80 '
-          key={list.title + index}
-        >
+        <ul className='grid lg:gap-4 grid-cols-2 xl:grid-cols-3 w-72 md:w-52 lg:w-60 xl:w-80 '>
           {renderSkills(list.skillList)}
         </ul>
       </motion.div>
@@ -66,7 +64,7 @@ const Skills = () => {
   return (
     <section
       id='skills'
-      className='min-h-[110vh] py-24 md:px-[4.5rem] flex justify-center items-center bg-[#f4f4f4] '
+      className='min-h-[110vh] py-24 md:px-[4.5rem] flex justify-center items-center bg-[#f4f4f4]'
     >
       <div className='w-80 md:w-[90%] max-w-[90%] md:max-w-4xl xl:max-w-6xl md:py-24 md:border-2 md:border-l-0 md:border-r-0 '>
         <h3 className='text-center text-4xl mb-8'>Skills</h3>
