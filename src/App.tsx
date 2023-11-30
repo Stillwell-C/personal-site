@@ -149,8 +149,8 @@ function App() {
       />
       <main>
         <Hero ref={heroScrollObserver} />
+        <About aboutParallaxScrollYProg={aboutParallaxScrollYProg} />
         <div ref={aboutParallaxRef}>
-          <About aboutParallaxScrollYProg={aboutParallaxScrollYProg} />
           <Skills />
         </div>
         <Projects ref={projectsScrollObserver} />
