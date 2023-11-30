@@ -76,8 +76,8 @@ const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
           <h2 className='text-5xl md:text-5xl mb-10'>Get in touch:</h2>
           <motion.div variants={variants} className='flex flex-col gap-8'>
             <p>
-              I'm open for new opportunities and projects to collaborate on.
-              Send me a message here or shoot me an email.
+              I'm open for new opportunities and interested in collaborating on
+              projects. Send me a message here or shoot me an email.
             </p>
             <div className='w-full flex gap-8'>
               <div className='flex flex-col gap-3'>
