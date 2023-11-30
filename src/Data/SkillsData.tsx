@@ -1,10 +1,14 @@
-type SkillType = {
+export type SkillType = {
   name: string;
   icon: JSX.Element;
 };
 
-const skillsList: SkillType[] = [
-  {
+type SkillObj = {
+  [key: string]: SkillType;
+};
+
+const skillsList: SkillObj = {
+  javascript: {
     name: "Javascript",
     icon: (
       <svg
@@ -21,7 +25,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  typescript: {
     name: "Typescript",
     icon: (
       <svg
@@ -42,7 +46,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  react: {
     name: "React",
     icon: (
       <svg
@@ -58,7 +62,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  html: {
     name: "HTML",
     icon: (
       <svg
@@ -80,7 +84,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  css: {
     name: "CSS",
     icon: (
       <svg
@@ -102,7 +106,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  sass: {
     name: "SASS",
     icon: (
       <svg
@@ -118,7 +122,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  tailwindcss: {
     name: "Tailwind CSS",
     icon: (
       <svg
@@ -134,7 +138,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  redux: {
     name: "Redux/RTK Query",
     icon: (
       <svg
@@ -151,7 +155,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  tanstack: {
     name: "Tanstack Query",
     icon: (
       <svg width='190px' height='190px' viewBox='0 0 190 190' version='1.1'>
@@ -178,7 +182,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  nodejs: {
     name: "Node.js",
     icon: (
       <svg
@@ -195,7 +199,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  expressjs: {
     name: "Express.js",
     icon: (
       <svg
@@ -208,7 +212,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  mongodb: {
     name: "MongoDB",
     icon: (
       <svg
@@ -232,7 +236,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  postgresql: {
     name: "PostgreSQL",
     icon: (
       <svg
@@ -258,7 +262,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  git: {
     name: "Git",
     icon: (
       <svg
@@ -275,7 +279,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  github: {
     name: "Github",
     icon: (
       <svg
@@ -292,7 +296,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  jest: {
     name: "Jest",
     icon: (
       <svg
@@ -327,7 +331,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  webpack: {
     name: "Webpack",
     icon: (
       <svg
@@ -348,7 +352,7 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
-  {
+  linux: {
     name: "Linux",
     icon: (
       <svg
@@ -440,6 +444,33 @@ const skillsList: SkillType[] = [
       </svg>
     ),
   },
+};
+
+const languages: SkillType[] = [
+  skillsList.javascript,
+  skillsList.typescript,
+  skillsList.html,
+  skillsList.css,
+  skillsList.postgresql,
 ];
 
-export { skillsList };
+const frameworks: SkillType[] = [
+  skillsList.react,
+  skillsList.nodejs,
+  skillsList.expressjs,
+  skillsList.redux,
+  skillsList.tanstack,
+  skillsList.sass,
+  skillsList.tailwindcss,
+];
+
+const devTools: SkillType[] = [
+  skillsList.mongodb,
+  skillsList.git,
+  skillsList.github,
+  skillsList.jest,
+  skillsList.webpack,
+  skillsList.linux,
+];
+
+export { languages, frameworks, devTools };
