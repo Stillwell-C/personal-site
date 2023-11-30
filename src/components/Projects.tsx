@@ -3,7 +3,7 @@ import projectsList from "../Data/ProjectsList";
 import SingleProject from "./SingleProject";
 import { ForwardedRef, forwardRef, useRef } from "react";
 
-const Projects = forwardRef((ref: ForwardedRef<HTMLElement>) => {
+const Projects = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   const sectionref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({

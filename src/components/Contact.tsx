@@ -55,7 +55,7 @@ const formVariants = {
   },
 };
 
-const Contact = forwardRef((ref: ForwardedRef<HTMLElement>) => {
+const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   return (
     <section
       id='contact'

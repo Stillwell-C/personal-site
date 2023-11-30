@@ -14,7 +14,7 @@ type MouseCoordType = {
   y: number;
 };
 
-const Hero = forwardRef((ref: ForwardedRef<HTMLDivElement>) => {
+const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
   const targetRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
