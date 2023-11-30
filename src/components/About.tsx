@@ -5,6 +5,7 @@ import {
   useTransform,
   useInView,
   useAnimation,
+  MotionValue,
 } from "framer-motion";
 
 const headerVariants = {
@@ -35,20 +36,36 @@ const textVariants = {
   },
 };
 
-const About = () => {
+type PropsType = {
+  aboutParallaxScrollYProg: MotionValue<number>;
+};
+
+const About = ({ aboutParallaxScrollYProg }: PropsType) => {
   const ref = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end end"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["start end", "end end"],
+  // });
 
-  const backgroundShiftY = useTransform(scrollYProgress, [0, 1], [0, 50]);
-  const backgroundShiftX = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const textShift = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const layoverShiftY = useTransform(scrollYProgress, [0, 1], [0, -170]);
-  const layoverShiftX = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const backgroundShiftY = useTransform(
+    aboutParallaxScrollYProg,
+    [0, 1],
+    [0, 70]
+  );
+  const backgroundShiftX = useTransform(
+    aboutParallaxScrollYProg,
+    [0, 1],
+    [0, -100]
+  );
+  const textShift = useTransform(aboutParallaxScrollYProg, [0, 1], [0, -150]);
+  const layoverShiftY = useTransform(
+    aboutParallaxScrollYProg,
+    [0, 1],
+    [0, -170]
+  );
+  const layoverShiftX = useTransform(aboutParallaxScrollYProg, [0, 1], [0, 50]);
 
   console.log(textShift);
 
@@ -67,10 +84,10 @@ const About = () => {
     <section
       ref={ref}
       id='about'
-      className='h-[100vh] flex justify-center overflow-hidden'
+      className='h-[130vh] flex justify-center overflow-hidden'
     >
       <div className='w-full h-full flex flex-col items-center justify-center relative'>
-        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-4xl w-1/2 md:w-3/4 h-1/2'>
+        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-4xl w-1/2 md:w-3/4 h-1/3'>
           <motion.div
             className='h-full w-full bg-[#f5f5f5] shadow-xl'
             style={{ y: backgroundShiftY, x: backgroundShiftX }}
@@ -83,9 +100,9 @@ const About = () => {
         >
           <motion.div
             style={{ y: layoverShiftY, x: layoverShiftX }}
-            className='bg-[#333] p-6 rounded-lg text-white absolute top-24 -right-10'
+            className='bg-[#333] p-6 rounded-lg text-white absolute top-10 right-10'
           >
-            About me:
+            <h2>About me:</h2>
           </motion.div>
           <div
             ref={headingRef}
@@ -96,18 +113,18 @@ const About = () => {
               initial='initial'
               animate={headingControls}
               // style={{ y: headerShift, opacity: headerOpacity }}
-              className='text-6xl mb-20'
+              className='text-5xl mb-20'
             >
               Hi.
             </motion.h2>
           </div>
           <motion.div
-            className='max-w-2xl text-left flex flex-col gap-4'
+            className='max-w-2xl text-left flex flex-col gap-4 text-xl'
             variants={textVariants}
             initial='initial'
             animate={headingControls}
           >
-            <p>I'm Chris.</p>
+            {/* <p>I'm Chris.</p> */}
             <p>
               I started learning programming and web development in my spare
               time and never stopped expanding my knowledge within the field. I
