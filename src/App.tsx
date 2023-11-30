@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Lenis from "@studio-freight/lenis";
 import Footer from "./components/Footer";
+import { useScroll } from "framer-motion";
 
 function App() {
   const [collapseNav, setCollapseNav] = useState<boolean>(false);
@@ -33,11 +34,22 @@ function App() {
   const heroScrollObserver = useRef<HTMLDivElement>(null);
   const projectsScrollObserver = useRef<HTMLElement>(null);
   const contactScrollObserver = useRef<HTMLElement>(null);
+  const aboutParallaxRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress: aboutParallaxScrollYProg } = useScroll({
+    target: aboutParallaxRef,
+    offset: ["start end", "end end"],
+  });
 
   useEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
 
-    function raf(time: any) {
+    // const lenis = new Lenis();
+
+    function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
@@ -137,8 +149,10 @@ function App() {
       />
       <main>
         <Hero ref={heroScrollObserver} />
-        <About />
-        <Skills />
+        <div ref={aboutParallaxRef}>
+          <About aboutParallaxScrollYProg={aboutParallaxScrollYProg} />
+          <Skills />
+        </div>
         <Projects ref={projectsScrollObserver} />
         <Contact ref={contactScrollObserver} />
         <Footer />
