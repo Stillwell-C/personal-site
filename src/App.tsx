@@ -150,9 +150,7 @@ function App() {
       <main>
         <Hero ref={heroScrollObserver} />
         <About aboutParallaxScrollYProg={aboutParallaxScrollYProg} />
-        <div ref={aboutParallaxRef}>
-          <Skills />
-        </div>
+        <Skills ref={aboutParallaxRef} />
         <Projects ref={projectsScrollObserver} />
         <Contact ref={contactScrollObserver} />
         <Footer />
