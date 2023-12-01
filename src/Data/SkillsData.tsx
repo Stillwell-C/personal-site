@@ -302,6 +302,8 @@ const skillsList: SkillObj = {
       <svg
         viewBox='-13.5 0 283 283'
         version='1.1'
+        width='2500'
+        height='2500'
         xmlns='http://www.w3.org/2000/svg'
         preserveAspectRatio='xMidYMid'
         fill='#000000'
@@ -360,6 +362,8 @@ const skillsList: SkillObj = {
         xmlns='http://www.w3.org/2000/svg'
         x='0px'
         y='0px'
+        width='2500'
+        height='2500'
         viewBox='0 2 48 48'
         enableBackground='new 0 2 48 48'
       >
