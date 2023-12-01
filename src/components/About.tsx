@@ -45,35 +45,40 @@ const About = ({ aboutParallaxScrollYProg }: PropsType) => {
 
   const backgroundShiftY = useTransform(
     aboutParallaxScrollYProg,
-    [0, 0.6],
+    [0, 0.8],
     [0, 70]
   );
   const backgroundShiftX = useTransform(
     aboutParallaxScrollYProg,
-    [0, 0.6],
+    [0, 0.8],
     [0, -100]
   );
   const sideLineShiftY = useTransform(
     aboutParallaxScrollYProg,
-    [0, 0.6],
-    [0, 140]
+    [0, 0.8],
+    [0, 70]
   );
   const sideLineShiftX = useTransform(
     aboutParallaxScrollYProg,
-    [0, 0.6],
-    [0, 100]
+    [0, 0.8],
+    [0, 200]
   );
   const bottomLineShiftY = useTransform(
     aboutParallaxScrollYProg,
-    [0, 0.6],
-    [0, 100]
+    [0, 0.8],
+    [0, 30]
   );
   const bottomLineShiftX = useTransform(
     aboutParallaxScrollYProg,
-    [0, 0.6],
-    [0, 200]
+    [0, 0.8],
+    [0, 300]
   );
-  const textShift = useTransform(aboutParallaxScrollYProg, [0, 0.6], [0, -100]);
+  const textShiftY = useTransform(
+    aboutParallaxScrollYProg,
+    [0, 0.8],
+    [0, -100]
+  );
+  const textShiftX = useTransform(aboutParallaxScrollYProg, [0, 0.6], [0, 100]);
   const layoverShiftY = useTransform(
     aboutParallaxScrollYProg,
     [0, 0.6],
@@ -82,7 +87,7 @@ const About = ({ aboutParallaxScrollYProg }: PropsType) => {
   const layoverShiftX = useTransform(
     aboutParallaxScrollYProg,
     [0, 0.6],
-    [0, 50]
+    [0, 150]
   );
   const headingControls = useAnimation();
 
@@ -99,40 +104,32 @@ const About = ({ aboutParallaxScrollYProg }: PropsType) => {
     <section
       ref={ref}
       id='about'
-      className='h-[150vh] md:h-[120vh] relative flex justify-center items-center overflow-hidden'
+      className='min-h-[150vh] md:min-h-[120vh] relative flex justify-center items-center overflow-hidden'
     >
-      <div className='w-full max-w-5xl h-fit lg:h-[450px] absolute'>
-        <div className='w-full h-full flex justify-center'>
-          <div className='absolute h-full max-w-4xl w-[90%] sm:w-3/4'>
+      <div className='w-full max-w-5xl flex justify-center py-20 sm:py-40'>
+        <motion.div
+          className='max-w-[70%] md:max-w-[80%] lg:max-w-2xl px-6 pt-44 pb-6 relative bg-[#fafafa]'
+          style={{ y: backgroundShiftY, x: backgroundShiftX }}
+        >
+          <div className='absolute right-0 top-0 h-full'>
             <motion.div
-              className='h-[110%] sm:h-[115%] w-full bg-[#fafafa] shadow-xl relative'
-              style={{ y: backgroundShiftY, x: backgroundShiftX }}
-            >
-              <div className='absolute right-0 h-full'>
-                <motion.div
-                  className='h-full bg-[#222] w-[2px] '
-                  style={{ y: sideLineShiftY, x: sideLineShiftX }}
-                ></motion.div>
-              </div>
-              <div className='absolute bottom-0 w-full'>
-                <motion.div
-                  className='w-full bg-[#222] h-[2px] '
-                  style={{ y: bottomLineShiftY, x: bottomLineShiftX }}
-                ></motion.div>
-              </div>
-            </motion.div>
+              className='h-full bg-[#222] w-[2px] '
+              style={{ y: sideLineShiftY, x: sideLineShiftX }}
+            ></motion.div>
           </div>
-
-          <motion.div
-            className='rounded-lg lg:max-w-2xl max-w-[80%] sm:p-12 relative mt-[100px] mb-4'
-            style={{ y: textShift }}
-          >
+          <div className='absolute left-0 bottom-0 w-full'>
             <motion.div
-              style={{ y: layoverShiftY, x: layoverShiftX }}
-              className='bg-[#333] p-6 rounded-lg text-white absolute -top-28 max-sm:-left-5 sm:-top-16 sm:right-10'
-            >
-              <h2>About me.</h2>
-            </motion.div>
+              className='w-full bg-[#222] h-[2px] '
+              style={{ y: bottomLineShiftY, x: bottomLineShiftX }}
+            ></motion.div>
+          </div>
+          <motion.div
+            style={{ y: layoverShiftY, x: layoverShiftX }}
+            className='bg-[#333] p-6 rounded-lg text-white absolute -top-2 max-sm:-left-2 sm:top-10 sm:right-10'
+          >
+            <h2>About me.</h2>
+          </motion.div>
+          <motion.div style={{ y: textShiftY, x: textShiftX }}>
             <div
               ref={headingRef}
               className='overflow-hidden h-[60px] text-left mb-8 text-[#222]'
@@ -166,9 +163,8 @@ const About = ({ aboutParallaxScrollYProg }: PropsType) => {
               </p>
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
-      {/* </div> */}
     </section>
   );
 };
