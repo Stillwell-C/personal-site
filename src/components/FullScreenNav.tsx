@@ -12,7 +12,7 @@ const FullScreenNav = () => {
               to={item.toLowerCase()}
               spy={true}
               smooth={true}
-              offset={50}
+              offset={item === "Projects" ? -50 : 50}
               duration={500}
               className='text-2xl group transition duration-300 ease-in-out cursor-pointer pointer-events-auto'
             >

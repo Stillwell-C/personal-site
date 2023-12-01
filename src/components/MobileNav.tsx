@@ -93,7 +93,7 @@ const MobileNav = ({ navColorShift, bottomIntersection }: PropsType) => {
                       to={item.toLowerCase()}
                       spy={true}
                       smooth={true}
-                      offset={50}
+                      offset={item === "Projects" ? -50 : 50}
                       duration={500}
                       className='text-3xl cursor-pointer'
                       onClick={handleClose}
