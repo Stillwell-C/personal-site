@@ -42,7 +42,7 @@ const ContactForm = () => {
     try {
       await axios({
         method: "post",
-        url: "https://personal-site-api-production.up.railway.app/",
+        url: "https://personal-site-api-production.up.railway.app/formsubmission",
         data: {
           name,
           email,
