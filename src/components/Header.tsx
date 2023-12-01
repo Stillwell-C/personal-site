@@ -58,7 +58,7 @@ const Header = ({
             }`
       }`}
     >
-      <div>
+      <div className='h-full flex items-center'>
         <h1>
           <Link
             activeClass='active'
@@ -67,7 +67,7 @@ const Header = ({
             smooth={true}
             offset={0}
             duration={500}
-            className='text-3xl md:text-4xl cursor-pointer pointer-events-auto'
+            className='text-2xl font-semibold md:text-3xl cursor-pointer pointer-events-auto tracking-tighter'
           >
             CS
           </Link>
