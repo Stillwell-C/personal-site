@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ReactElement } from "react";
+import { ForwardedRef, ReactElement, forwardRef } from "react";
 import { languages, frameworks, devTools, SkillType } from "../Data/SkillsData";
 
 type ListTypeArr = { title: string; skillList: SkillType[] }[];
@@ -19,7 +19,7 @@ const fadeInAnimationVariants = {
   }),
 };
 
-const Skills = () => {
+const Skills = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   const renderSkills = (skillList: SkillType[]): ReactElement[] => {
     return skillList.map((skill) => (
       <li
@@ -66,6 +66,7 @@ const Skills = () => {
     <section
       id='skills'
       className='min-h-[110vh] py-24 md:px-[4.5rem] flex justify-center items-center bg-[#f4f4f4]'
+      ref={ref}
     >
       <div className='w-80 md:w-[90%] max-w-[90%] md:max-w-4xl xl:max-w-6xl md:py-24 md:border-2 md:border-l-0 md:border-r-0 '>
         <h3 className='text-center text-4xl mb-8'>Skills</h3>
@@ -75,6 +76,6 @@ const Skills = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Skills;
