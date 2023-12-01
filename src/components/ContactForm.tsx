@@ -42,7 +42,7 @@ const ContactForm = () => {
     try {
       await axios({
         method: "post",
-        url: "personal-site-api-production.up.railway.app/",
+        url: "https://personal-site-api-production.up.railway.app/",
         data: {
           name,
           email,
@@ -60,6 +60,7 @@ const ContactForm = () => {
       setLoading(false);
       if (err instanceof Error) {
         setErrorMsg(err.message);
+        console.log(err);
       } else {
         setErrorMsg("An unknown error occurred. Please try again.");
       }
