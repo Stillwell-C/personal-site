@@ -2,7 +2,6 @@ import { useScroll } from "framer-motion";
 import projectsList from "../Data/ProjectsList";
 import SingleProject from "./SingleProject";
 import { ForwardedRef, forwardRef, useRef } from "react";
-import { Element } from "react-scroll";
 
 const Projects = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   const sectionref = useRef<HTMLDivElement>(null);
