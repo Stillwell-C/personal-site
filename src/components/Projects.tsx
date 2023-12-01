@@ -2,6 +2,7 @@ import { useScroll } from "framer-motion";
 import projectsList from "../Data/ProjectsList";
 import SingleProject from "./SingleProject";
 import { ForwardedRef, forwardRef, useRef } from "react";
+import { Element } from "react-scroll";
 
 const Projects = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   const sectionref = useRef<HTMLDivElement>(null);
@@ -12,8 +13,8 @@ const Projects = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   });
 
   return (
-    <section ref={ref} className='mt-20' id='projects'>
-      <h2 className='mb-40 text-center text-4xl'>Projects</h2>
+    <section ref={ref} className='mt-40' id='projects'>
+      <h2 className='mb-20 text-center text-4xl'>Projects</h2>
       <div className='overflow-x-hidden h-full pb-40'>
         <div
           ref={sectionref}
