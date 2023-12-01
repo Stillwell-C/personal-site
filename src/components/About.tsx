@@ -108,7 +108,7 @@ const About = ({ aboutParallaxScrollYProg }: PropsType) => {
     >
       <div className='w-full max-w-5xl flex justify-center py-20 sm:py-40'>
         <motion.div
-          className='max-w-[70%] md:max-w-[80%] lg:max-w-2xl px-6 pt-44 pb-6 relative bg-[#fafafa]'
+          className='max-w-[70%] md:max-w-[80%] lg:max-w-2xl px-6 pt-32 sm:pt-44 pb-8 relative bg-[#fafafa]'
           style={{ y: backgroundShiftY, x: backgroundShiftX }}
         >
           <div className='absolute right-0 top-0 h-full'>
