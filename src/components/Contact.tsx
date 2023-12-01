@@ -79,7 +79,7 @@ const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
               I'm open for new opportunities and interested in collaborating on
               projects. Send me a message here or shoot me an email.
             </p>
-            <div className='w-full flex gap-8'>
+            <div className='w-full flex flex-col sm:flex-row gap-8'>
               <div className='flex flex-col gap-3'>
                 <span>Email me at:</span>
 
