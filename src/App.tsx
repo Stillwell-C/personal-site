@@ -141,7 +141,7 @@ function App() {
   }, [heroIntersection, contactIntersection, projectsIntersection]);
 
   return (
-    <div>
+    <div className='font-montserrat'>
       <Header
         collapseNav={collapseNav}
         navColorShift={navColorShift}
