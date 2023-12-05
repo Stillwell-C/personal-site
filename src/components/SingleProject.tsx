@@ -34,8 +34,6 @@ const SingleProject = ({ project, index }: PropsType) => {
   });
 
   const yImg = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  // const yInfo = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  // const xInfo = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
   const even = index % 2 === 0;
 
