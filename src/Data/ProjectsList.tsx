@@ -37,7 +37,7 @@ const projectsList: Project[] = [
   {
     name: "Wild Goose Chase",
     image: wildGooseChase,
-    description: "Full stack blogging application.",
+    description: "Full-stack blogging application.",
     technologies: [
       technologiesList.javascript,
       technologiesList.react,
@@ -53,7 +53,7 @@ const projectsList: Project[] = [
   {
     name: "PhotoTag",
     image: photoTag,
-    description: "Full stack photo tagging game application.",
+    description: "Full-stack photo tagging game.",
     technologies: [
       technologiesList.typescript,
       technologiesList.react,
