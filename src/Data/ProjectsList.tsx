@@ -74,6 +74,7 @@ const projectsList: Project[] = [
       technologiesList.typescript,
       technologiesList.react,
       technologiesList.tailwind,
+      technologiesList.expressjs,
     ],
     siteLink: null,
     githubLink: "https://github.com/Stillwell-C/personal-site",
