@@ -51,9 +51,6 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
   }, []);
 
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.2]);
-  //   const yPosShift = useTransform(scrollYProgress, [0, 0.5, 1], [0, -250, -100]);
-  // const xShift = useTransform(scrollYProgress, [0, 5], ["0%", "150%"]);
-  // const yShift = useTransform(scrollYProgress, [0, 1], ["0%", "-200%"]);
 
   return (
     <section
