@@ -67,14 +67,14 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
           style={{ opacity }}
           className='pt-[70vh] sm:pt-[80vh] px-4 sm:px-10 md:px-20 w-full flex flex-col items-end text-right'
         >
-          <h2 className='mb-4'>
+          <h2 className='mb-2'>
             <span className='text-5xl sm:text-6xl'>Christopher Stillwell</span>
           </h2>
           <div className='flex gap-2'>
             <a href='https://github.com/Stillwell-C' target='_blank'>
               <svg
-                width='36'
-                height='36'
+                width='30'
+                height='30'
                 viewBox='0 0 256 249'
                 xmlns='http://www.w3.org/2000/svg'
                 preserveAspectRatio='xMinYMin meet'
@@ -91,8 +91,8 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                height='36'
-                width='36'
+                height='32'
+                width='32'
                 viewBox='0 0 448 512'
               >
                 <path
@@ -103,8 +103,8 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
             </a>
             <a href='mailto:stillwell.c.m@gmail.com' target='_blank'>
               <svg
-                width='36px'
-                height='36px'
+                width='32'
+                height='32'
                 viewBox='0 0 24 24'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
