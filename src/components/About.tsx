@@ -54,26 +54,6 @@ const About = ({ aboutParallaxScrollYProg }: PropsType) => {
     [0, 0.8],
     [0, -100]
   );
-  const sideLineShiftY = useTransform(
-    aboutParallaxScrollYProg,
-    [0, 0.8],
-    [0, 70]
-  );
-  const sideLineShiftX = useTransform(
-    aboutParallaxScrollYProg,
-    [0, 0.8],
-    [0, 200]
-  );
-  const bottomLineShiftY = useTransform(
-    aboutParallaxScrollYProg,
-    [0, 0.8],
-    [0, 30]
-  );
-  const bottomLineShiftX = useTransform(
-    aboutParallaxScrollYProg,
-    [0, 0.8],
-    [0, 300]
-  );
   const textShiftY = useTransform(
     aboutParallaxScrollYProg,
     [0, 0.8],
@@ -144,18 +124,6 @@ const About = ({ aboutParallaxScrollYProg }: PropsType) => {
           className='max-w-[70%] lg:max-w-5xl w-3/4 px-6 pt-32 sm:pt-44 pb-8 relative bg-[#fafafa] shadow-xl'
           style={{ y: backgroundShiftY, x: backgroundShiftX }}
         >
-          {/* <div className='absolute right-0 bottom-0 h-[97%]'>
-            <motion.div
-              className='h-full bg-[#222] w-[2px] '
-              style={{ y: sideLineShiftY, x: sideLineShiftX }}
-            ></motion.div>
-          </div>
-          <div className='absolute right-0 bottom-0 w-[99%]'>
-            <motion.div
-              className='w-full bg-[#222] h-[2px] '
-              style={{ y: bottomLineShiftY, x: bottomLineShiftX }}
-            ></motion.div>
-          </div> */}
           <motion.div
             style={{ y: layoverShiftY, x: layoverShiftX }}
             className='bg-[#333] p-6 rounded-lg text-white absolute -top-2 max-sm:-left-2 sm:top-10 sm:right-10'
