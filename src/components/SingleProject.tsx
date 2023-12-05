@@ -40,7 +40,7 @@ const SingleProject = ({ project, index }: PropsType) => {
   const projectInformation = (
     <>
       <h3 className='max-sm:hidden text-xl mb-4'>{project.name}</h3>
-      <p className='mb-2 text-md text-[#333]'>{project.description}</p>
+      <p className='mb-2 text-md'>{project.description}</p>
       <p className='mb-2'>Built using:</p>
       <ul className='flex flex-wrap mb-4'>
         {project.technologies.map((technology) => (
@@ -89,7 +89,7 @@ const SingleProject = ({ project, index }: PropsType) => {
       whileInView='animate'
       viewport={{ once: true }}
       ref={ref}
-      className='flex items-center justify-center w-full sm:[--x-from:500px]'
+      className='flex items-center justify-center w-full sm:[--x-from:500px] text-[#333]'
     >
       <div className='w-full max-w-7xl flex flex-col sm:flex-row items-center gap-8 px-16 relative justify-center'>
         <div className='sm:hidden text-2xl -mb-6'>
