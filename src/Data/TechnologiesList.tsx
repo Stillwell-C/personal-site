@@ -7,7 +7,7 @@ type TechnologiesType = {
 
 const technologies: TechnologiesType = {
   javascript: {
-    name: "Javascript",
+    name: "JavaScript",
     icon: (
       <svg
         width='24'
@@ -26,7 +26,7 @@ const technologies: TechnologiesType = {
     ),
   },
   typescript: {
-    name: "Typescript",
+    name: "TypeScript",
     icon: (
       <svg
         role='img'
@@ -139,7 +139,7 @@ const technologies: TechnologiesType = {
     ),
   },
   expressjs: {
-    name: "Express.JS",
+    name: "Express.js",
     icon: (
       <svg
         width='24'

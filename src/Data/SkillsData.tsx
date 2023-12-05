@@ -9,7 +9,7 @@ type SkillObj = {
 
 const skillsList: SkillObj = {
   javascript: {
-    name: "Javascript",
+    name: "JavaScript",
     icon: (
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -26,7 +26,7 @@ const skillsList: SkillObj = {
     ),
   },
   typescript: {
-    name: "Typescript",
+    name: "TypeScript",
     icon: (
       <svg
         xmlns='http://www.w3.org/2000/svg'
