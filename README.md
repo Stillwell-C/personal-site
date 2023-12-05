@@ -37,7 +37,7 @@ The [cors](https://www.npmjs.com/package/cors) package is used to only allow req
 
 ### Frontend
 
-- ReactJS
+- React
 - Typescript
 - React Router
 - Axios
@@ -47,6 +47,6 @@ The [cors](https://www.npmjs.com/package/cors) package is used to only allow req
 
 ### Backend
 
-- NodeJS
-- ExpressJS
+- Node.js
+- Express.js
 - Nodemailer
