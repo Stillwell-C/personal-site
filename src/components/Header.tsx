@@ -53,7 +53,7 @@ const Header = ({
           ? "text-black max-sm:bg-[#f5f5f5] bg-opacity-90"
           : `text-white ${
               bottomIntersection
-                ? "max-sm:bg-[#f5f5f5] max-sm:text-black max-sm:bg-opacity-90"
+                ? "max-sm:bg-[#f5f5f5] max-sm:text-black max-sm:bg-opacity-100"
                 : ""
             }`
       }`}
