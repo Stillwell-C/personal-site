@@ -18,8 +18,8 @@ const menuVariants = {
   exit: {
     scaleY: 0,
     transition: {
-      delay: 0.15,
-      duration: 0.4,
+      delay: 0.4,
+      duration: 0.35,
       ease: "easeInOut",
     },
   },
@@ -28,7 +28,7 @@ const menuVariants = {
 const listVariants = {
   initial: {
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.08,
       staggerDirection: -1,
     },
   },
@@ -44,10 +44,18 @@ const listItemVariants = {
   initial: {
     y: 50,
     opacity: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
   },
   open: {
     y: 0,
     opacity: 1,
+    transition: {
+      duration: 0.2,
+      ease: "easeInOut",
+    },
   },
 };
 
@@ -87,20 +95,22 @@ const MobileNav = ({ navColorShift, bottomIntersection }: PropsType) => {
                 exit='initial'
               >
                 {navList.map((item) => (
-                  <motion.li variants={listItemVariants} key={item}>
-                    <Link
-                      activeClass='active'
-                      to={item.toLowerCase()}
-                      spy={true}
-                      smooth={true}
-                      offset={item === "Projects" ? -50 : 50}
-                      duration={500}
-                      className='text-3xl cursor-pointer'
-                      onClick={handleClose}
-                    >
-                      {item}
-                    </Link>
-                  </motion.li>
+                  <li key={item} className='overflow-hidden'>
+                    <motion.div variants={listItemVariants}>
+                      <Link
+                        activeClass='active'
+                        to={item.toLowerCase()}
+                        spy={true}
+                        smooth={true}
+                        offset={item === "Projects" ? -50 : 50}
+                        duration={500}
+                        className='text-3xl cursor-pointer'
+                        onClick={handleClose}
+                      >
+                        {item}
+                      </Link>
+                    </motion.div>
+                  </li>
                 ))}
               </motion.ul>
             </motion.nav>
