@@ -45,7 +45,7 @@ const listItemVariants = {
     y: 50,
     opacity: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       ease: "easeInOut",
     },
   },
@@ -53,7 +53,7 @@ const listItemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.2,
+      duration: 0.5,
       ease: "easeInOut",
     },
   },
