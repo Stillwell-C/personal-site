@@ -27,6 +27,7 @@ const projectsList: Project[] = [
       technologiesList.javascript,
       technologiesList.react,
       technologiesList.sass,
+      technologiesList.redis,
       technologiesList.mongodb,
       technologiesList.expressjs,
       technologiesList.tanstack,
