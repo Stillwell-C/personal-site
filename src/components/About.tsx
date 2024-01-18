@@ -84,7 +84,6 @@ const About = ({ aboutParallaxScrollYProg }: PropsType) => {
     if (isInView || mobileIsInView) {
       headingControls.start("animate");
     }
-    console.log(isInView, mobileIsInView);
   }, [isInView, mobileIsInView]);
 
   const aboutText =
