@@ -25,13 +25,15 @@ const MobileNavHamburgerBtn = ({
             : `${
                 navColorShift
                   ? "bg-black"
-                  : `bg-white ${bottomIntersection ? "max-sm:bg-black" : ""}`
+                  : `bg-white ${
+                      bottomIntersection && !open ? "max-sm:bg-black" : ""
+                    }`
               } before:-translate-y-2.5 after:translate-y-2.5`
         } ${
           navColorShift
             ? "before:bg-black after:bg-black"
             : `before:bg-white after:bg-white ${
-                bottomIntersection
+                bottomIntersection && !open
                   ? "max-sm:before:bg-black max-sm:after:bg-black"
                   : ""
               }`
