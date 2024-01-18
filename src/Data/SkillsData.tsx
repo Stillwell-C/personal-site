@@ -456,6 +456,8 @@ const skillsList: SkillObj = {
         xmlns='http://www.w3.org/2000/svg'
         preserveAspectRatio='xMinYMin meet'
         fill='#000000'
+        width='2500'
+        height='2500'
       >
         <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
         <g
