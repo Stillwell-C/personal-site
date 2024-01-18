@@ -151,11 +151,6 @@ const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
                 </div>
               </div>
             </div>
-            <div>
-              <button className='bg-white text-black p-4 rounded-md'>
-                View Resume
-              </button>
-            </div>
           </motion.div>
         </motion.div>
         <div className='relative pt-4 w-full min-w-[300px] max-w-[450px] flex-1'>
