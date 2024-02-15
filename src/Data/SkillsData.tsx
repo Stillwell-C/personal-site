@@ -510,7 +510,7 @@ const skillsList: SkillObj = {
     name: "NestJS",
     icon: (
       <svg
-        fill='#000000'
+        fill='#e0234e'
         width='800px'
         height='800px'
         viewBox='0 0 24 24'
@@ -709,6 +709,7 @@ const frameworks: SkillType[] = [
   skillsList.react,
   skillsList.nodejs,
   skillsList.expressjs,
+  skillsList.nestJS,
   skillsList.redux,
   skillsList.tanstack,
   skillsList.sass,
@@ -717,7 +718,9 @@ const frameworks: SkillType[] = [
 
 const devTools: SkillType[] = [
   skillsList.mongodb,
+  skillsList.graphQL,
   skillsList.redis,
+  skillsList.prisma,
   skillsList.git,
   skillsList.github,
   skillsList.jest,
