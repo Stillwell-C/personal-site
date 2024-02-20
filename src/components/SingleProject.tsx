@@ -42,10 +42,10 @@ const SingleProject = ({ project, index }: PropsType) => {
       <h3 className='max-sm:hidden text-xl mb-4'>{project.name}</h3>
       <p className='mb-2 text-md'>{project.description}</p>
       <p className='mb-2'>Built using:</p>
-      <ul className='flex flex-wrap mb-4'>
+      <ul className='flex flex-wrap mb-4 cursor-default'>
         {project.technologies.map((technology) => (
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             className='flex justify-start items-center gap-1 mb-2 mr-4'
             key={technology.name}
           >
