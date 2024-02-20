@@ -23,7 +23,7 @@ const Skills = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
   const renderSkills = (skillList: SkillType[]): ReactElement[] => {
     return skillList.map((skill) => (
       <li
-        className='p-4 text-center hover:-translate-y-4 ease-in-out duration-200 '
+        className='p-4 text-center hover:-translate-y-2 ease-in-out duration-300 '
         key={skill.name}
       >
         <div className='w-full flex items-center justify-center [&>svg]:max-w-[36px] [&>svg]:max-h-[36px] md:[&>svg]:max-w-[32px] md:[&>svg]:max-h-[32px] lg:[&>svg]:max-w-48 lg:[&>svg]:max-h-48'>
