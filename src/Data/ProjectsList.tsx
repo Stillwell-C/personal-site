@@ -2,6 +2,7 @@ import gramCopyImg from "../assets/GramCopy.png";
 import wildGooseChase from "../assets/WildGooseChase.png";
 import photoTag from "../assets/PhotoTag.png";
 import portfolio from "../assets/PortfolioSite.png";
+import inhands from "../assets/inhands.png";
 import technologiesList from "./TechnologiesList";
 
 type Technology = {
@@ -50,6 +51,22 @@ const projectsList: Project[] = [
     ],
     siteLink: "https://wild-goose-chase.vercel.app/",
     githubLink: "https://github.com/Stillwell-C/blog-frontend",
+  },
+  {
+    name: "E-commerce Application",
+    image: inhands,
+    description: "Full-stack e-commerce application.",
+    technologies: [
+      technologiesList.typescript,
+      technologiesList.nestJS,
+      technologiesList.graphQL,
+      technologiesList.postgresql,
+      technologiesList.prisma,
+      technologiesList.react,
+      technologiesList.tailwind,
+    ],
+    siteLink: "https://shopping-cart-henna-zeta.vercel.app/",
+    githubLink: "https://github.com/Stillwell-C/shoppingCart",
   },
   {
     name: "PhotoTag",
