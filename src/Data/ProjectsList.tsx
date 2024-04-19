@@ -3,6 +3,7 @@ import wildGooseChase from "../assets/WildGooseChase.png";
 import photoTag from "../assets/PhotoTag.png";
 import portfolio from "../assets/PortfolioSite.png";
 import inhands from "../assets/inhands.png";
+import kkobak from "../assets/KkobakSite.png";
 import technologiesList from "./TechnologiesList";
 
 type Technology = {
@@ -51,6 +52,20 @@ const projectsList: Project[] = [
     ],
     siteLink: "https://wild-goose-chase.vercel.app/",
     githubLink: "https://github.com/Stillwell-C/blog-frontend",
+  },
+  {
+    name: "Kkobak Kkobak (꼬박꼬박)",
+    image: kkobak,
+    description:
+      "Korean dictionary and flashcard application with spaced repitition.",
+    technologies: [
+      technologiesList.typescript,
+      technologiesList.nextJS,
+      technologiesList.css,
+      technologiesList.mongodb,
+    ],
+    siteLink: "https://korean-dictionary.vercel.app/",
+    githubLink: "https://github.com/Stillwell-C/koreanDictionary",
   },
   {
     name: "E-commerce Application",
