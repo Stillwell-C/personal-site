@@ -57,7 +57,7 @@ const projectsList: Project[] = [
     name: "Kkobak Kkobak (꼬박꼬박)",
     image: kkobak,
     description:
-      "Korean dictionary and flashcard application with spaced repitition.",
+      "Korean dictionary and flashcard application with spaced repetition algorithm.",
     technologies: [
       technologiesList.typescript,
       technologiesList.nextJS,
