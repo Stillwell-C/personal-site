@@ -127,7 +127,8 @@ const Canvas = ({ width, height, mousePosition }: PropsType) => {
     const canvasWidth = width + enlargeFactor;
     const canvasHeight = height + enlargeFactor;
     const canvasSize = canvasHeight * canvasWidth;
-    for (let i = 0; i < canvasSize * 0.00025; i++) {
+    const dotLimit = Math.min(canvasSize * 0.00025, 1000);
+    for (let i = 0; i < dotLimit; i++) {
       const x = Math.random() * canvasWidth - canvasWidth / 2;
       const y = Math.random() * canvasHeight - canvasHeight / 2;
       // const radius = 3 * Math.random() + 1;
