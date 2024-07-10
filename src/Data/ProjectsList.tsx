@@ -4,6 +4,7 @@ import photoTag from "../assets/PhotoTag.png";
 import portfolio from "../assets/PortfolioSite.png";
 import inhands from "../assets/inhands.png";
 import kkobak from "../assets/KkobakSite.png";
+import hotelFinder from "../assets/HotelFinder.png";
 import technologiesList from "./TechnologiesList";
 
 type Technology = {
@@ -57,7 +58,7 @@ const projectsList: Project[] = [
     name: "Kkobak Kkobak (꼬박꼬박)",
     image: kkobak,
     description:
-      "Korean dictionary and flashcard application with spaced repetition algorithm.",
+      "Korean dictionary and flashcard application with spaced repetition algorithm and AI chat.",
     technologies: [
       technologiesList.typescript,
       technologiesList.nextJS,
@@ -66,6 +67,19 @@ const projectsList: Project[] = [
     ],
     siteLink: "https://korean-dictionary.vercel.app/",
     githubLink: "https://github.com/Stillwell-C/koreanDictionary",
+  },
+  {
+    name: "Hotel Finder",
+    image: hotelFinder,
+    description: "Hotel booking application built with ASP.Net Core MVC",
+    technologies: [
+      technologiesList.cSharp,
+      technologiesList.dotnet,
+      technologiesList.jquery,
+      technologiesList.bootstrap,
+    ],
+    siteLink: "https://aspmvchotelapp.azurewebsites.net/",
+    githubLink: "https://github.com/Stillwell-C/AspCoreMvcHotelApp",
   },
   {
     name: "E-commerce Application",
