@@ -68,7 +68,11 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
             <span className='text-5xl sm:text-6xl'>Christopher Stillwell</span>
           </h2>
           <div className='flex gap-2'>
-            <a href='https://github.com/Stillwell-C' target='_blank'>
+            <a
+              href='https://github.com/Stillwell-C'
+              target='_blank'
+              aria-label='Move to github profile'
+            >
               <svg
                 width='30'
                 height='30'
@@ -85,6 +89,7 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
             <a
               href='https://www.linkedin.com/in/christopher-stillwell-8335432a3/'
               target='_blank'
+              aria-label='Move to linkedin profile'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -98,7 +103,11 @@ const Hero = forwardRef((props: object, ref: ForwardedRef<HTMLDivElement>) => {
                 />
               </svg>
             </a>
-            <a href='mailto:stillwell.c.m@gmail.com' target='_blank'>
+            <a
+              href='mailto:stillwell.c.m@gmail.com'
+              target='_blank'
+              aria-label='Email address'
+            >
               <svg
                 width='32'
                 height='32'
