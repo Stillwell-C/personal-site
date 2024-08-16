@@ -44,18 +44,20 @@ const SingleProject = ({ project, index }: PropsType) => {
       <p className='mb-2'>Built using:</p>
       <ul className='flex flex-wrap mb-4 cursor-default'>
         {project.technologies.map((technology) => (
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className='flex justify-start items-center gap-1 mb-2 mr-4'
-            key={technology.name}
-          >
-            {technology?.icon && (
-              <div className='w-6 h-6 flex items-center justify-start'>
-                {technology.icon}
-              </div>
-            )}
-            <span className='rounded-md'>{technology?.name}</span>
-          </motion.div>
+          <li>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className='flex justify-start items-center gap-1 mb-2 mr-4'
+              key={technology.name}
+            >
+              {technology?.icon && (
+                <div className='w-6 h-6 flex items-center justify-start'>
+                  {technology.icon}
+                </div>
+              )}
+              <span className='rounded-md'>{technology?.name}</span>
+            </motion.div>
+          </li>
         ))}
       </ul>
       <div className='flex justify-end gap-2 '>
