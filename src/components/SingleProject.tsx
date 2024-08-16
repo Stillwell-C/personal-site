@@ -44,11 +44,10 @@ const SingleProject = ({ project, index }: PropsType) => {
       <p className='mb-2'>Built using:</p>
       <ul className='flex flex-wrap mb-4 cursor-default'>
         {project.technologies.map((technology) => (
-          <li>
+          <li key={technology.name}>
             <motion.div
               whileHover={{ scale: 1.02 }}
               className='flex justify-start items-center gap-1 mb-2 mr-4'
-              key={technology.name}
             >
               {technology?.icon && (
                 <div className='w-6 h-6 flex items-center justify-start'>
@@ -102,11 +101,18 @@ const SingleProject = ({ project, index }: PropsType) => {
             even ? "md:justify-start" : "md:justify-end"
           }`}
         >
-          <img
-            src={project.image}
-            alt={project.name}
-            className='h-full object-cover rounded-md w-[90%]'
-          />
+          <picture>
+            <source media='(max-width: 600px)' srcSet={project.mobileImage} />
+            <source media='(min-width: 601px)' srcSet={project.image} />
+            <img
+              aria-hidden='true'
+              loading='lazy'
+              decoding='async'
+              src={project.image}
+              alt={project.name}
+              className='h-full object-cover rounded-md w-[90%]'
+            />
+          </picture>
           <motion.div
             style={{ y: yImg }}
             className={`max-sm:hidden sm:absolute max-w-[85%] md:max-w-md border border-[#cccccc] z-[2] bg-white p-4 rounded-lg shadow-lg  sm:max-md:-bottom-[60%] md:top-1/3 ${
