@@ -1,10 +1,17 @@
-import gramCopyImg from "../assets/GramCopy.png";
+import gramCopy from "../assets/GramCopy.png";
+import gramCopyMobile from "../assets/GramCopy.webp";
 import wildGooseChase from "../assets/WildGooseChase.png";
+import wildGooseChaseMobile from "../assets/WildGooseChase.webp";
 import photoTag from "../assets/PhotoTag.png";
+import photoTagMobile from "../assets/PhotoTag.webp";
 import portfolio from "../assets/PortfolioSite.png";
+import portfolioMobile from "../assets/PortfolioSite.webp";
 import inhands from "../assets/inhands.png";
+import inhandsMobile from "../assets/inhands.webp";
 import kkobak from "../assets/KkobakSite.png";
+import kkobakMobile from "../assets/KkobakSite.webp";
 import hotelFinder from "../assets/HotelFinder.png";
+import hotelFinderMobile from "../assets/HotelFinder.webp";
 import technologiesList from "./TechnologiesList";
 
 type Technology = {
@@ -15,6 +22,7 @@ type Technology = {
 export type Project = {
   name: string;
   image: string;
+  mobileImage: string;
   description: string;
   technologies: Technology[];
   siteLink: string | null;
@@ -24,7 +32,8 @@ export type Project = {
 const projectsList: Project[] = [
   {
     name: "GramCopy",
-    image: gramCopyImg,
+    image: gramCopy,
+    mobileImage: gramCopyMobile,
     description: "Full-stack Instagram-like social media application",
     technologies: [
       technologiesList.javascript,
@@ -41,6 +50,7 @@ const projectsList: Project[] = [
   {
     name: "Wild Goose Chase",
     image: wildGooseChase,
+    mobileImage: wildGooseChaseMobile,
     description: "Full-stack blogging application.",
     technologies: [
       technologiesList.javascript,
@@ -57,6 +67,7 @@ const projectsList: Project[] = [
   {
     name: "Kkobak Kkobak (꼬박꼬박)",
     image: kkobak,
+    mobileImage: kkobakMobile,
     description:
       "Korean dictionary and flashcard application with spaced repetition algorithm and AI chat.",
     technologies: [
@@ -71,6 +82,7 @@ const projectsList: Project[] = [
   {
     name: "Hotel Finder",
     image: hotelFinder,
+    mobileImage: hotelFinderMobile,
     description: "Hotel booking application built with ASP.Net Core MVC",
     technologies: [
       technologiesList.cSharp,
@@ -84,6 +96,7 @@ const projectsList: Project[] = [
   {
     name: "E-commerce Application",
     image: inhands,
+    mobileImage: inhandsMobile,
     description: "Full-stack e-commerce application.",
     technologies: [
       technologiesList.typescript,
@@ -100,6 +113,7 @@ const projectsList: Project[] = [
   {
     name: "PhotoTag",
     image: photoTag,
+    mobileImage: photoTagMobile,
     description: "Full-stack photo tagging game.",
     technologies: [
       technologiesList.typescript,
@@ -115,6 +129,7 @@ const projectsList: Project[] = [
   {
     name: "Portfolio Site",
     image: portfolio,
+    mobileImage: portfolioMobile,
     description:
       "The site you're on now. Animated & responsive. View code below.",
     technologies: [
