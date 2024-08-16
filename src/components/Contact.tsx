@@ -85,7 +85,11 @@ const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
 
                 <div className='flex gap-1 items-center'>
                   <span className=''>stillwell.c.m@gmail.com</span>
-                  <a href='mailto:stillwell.c.m@gmail.com' target='_blank'>
+                  <a
+                    href='mailto:stillwell.c.m@gmail.com'
+                    target='_blank'
+                    aria-label='email address'
+                  >
                     <svg
                       className='h-6 w-6'
                       viewBox='0 0 24 24'
@@ -118,7 +122,11 @@ const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
               <div className='flex flex-col gap-3'>
                 <span>Find me at:</span>
                 <div className='flex gap-2'>
-                  <a href='https://github.com/Stillwell-C' target='_blank'>
+                  <a
+                    href='https://github.com/Stillwell-C'
+                    target='_blank'
+                    aria-label='move to github profile'
+                  >
                     <svg
                       width='28'
                       height='28'
@@ -135,6 +143,7 @@ const Contact = forwardRef((props: object, ref: ForwardedRef<HTMLElement>) => {
                   <a
                     href='https://www.linkedin.com/in/christopher-stillwell-8335432a3/'
                     target='_blank'
+                    aria-label='move to linkedin profile'
                   >
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
