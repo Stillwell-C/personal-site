@@ -63,6 +63,7 @@ const Header = ({
           <Link
             activeClass='active'
             to='hero'
+            href='#hero'
             spy={true}
             smooth={true}
             offset={0}

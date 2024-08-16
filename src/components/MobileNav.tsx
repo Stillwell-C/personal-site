@@ -100,6 +100,7 @@ const MobileNav = ({ navColorShift, bottomIntersection }: PropsType) => {
                       <Link
                         activeClass='active'
                         to={item.toLowerCase()}
+                        href={`#${item.toLowerCase()}`}
                         spy={true}
                         smooth={true}
                         offset={item === "Projects" ? -50 : 50}
