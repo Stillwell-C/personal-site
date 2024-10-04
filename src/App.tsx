@@ -140,6 +140,11 @@ function App() {
     }
   }, [heroIntersection, contactIntersection, projectsIntersection]);
 
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className='font-montserrat'>
       <Header
